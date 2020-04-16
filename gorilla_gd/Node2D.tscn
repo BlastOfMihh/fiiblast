@@ -1,32 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://PLAYER.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sprites/background_glacial_mountains.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/musolini.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/musolini/run/sprite_0.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/musolini/run/sprite_1.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/musolini/idle/sprite_1.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/musolini/idle/sprite_0.png" type="Texture" id=7]
-[ext_resource path="res://enemy.gd" type="Script" id=8]
+[ext_resource path="res://Assets/background_glacial_mountains.png" type="Texture" id=2]
+[ext_resource path="res://Assets/musolini.png" type="Texture" id=3]
+[ext_resource path="res://musolini.tscn" type="PackedScene" id=4]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 121.032, 10 )
-
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "idle",
-"speed": 2.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "run",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 10, 19.6296 )
 
 [node name="level" type="Node2D"]
 position = Vector2( 40.7652, 45.9417 )
@@ -45,67 +25,72 @@ position = Vector2( 0, -1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ground"]
 position = Vector2( 4.90561, 102.885 )
-scale = Vector2( 2.68585, 1.3169 )
+scale = Vector2( 6.17916, 1.83754 )
 collision_layer = 2
+collision_mask = 0
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground/StaticBody2D"]
 position = Vector2( 0, 8 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="ground"]
 position = Vector2( 104.845, -15.9635 )
 rotation = -3.14159
 scale = Vector2( 0.261165, -2.79692 )
 collision_layer = 2
+collision_mask = 0
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground/StaticBody2D2"]
 position = Vector2( 0, 8 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="ground"]
 position = Vector2( -215.687, -294.976 )
 rotation = -3.14159
 scale = Vector2( 0.298246, -18.1475 )
 collision_layer = 2
+collision_mask = 0
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground/StaticBody2D4"]
 position = Vector2( 0, 8 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="ground"]
 position = Vector2( -72.0417, -322.453 )
 rotation = -3.14159
 scale = Vector2( 0.298246, -18.1475 )
 collision_layer = 2
+collision_mask = 0
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground/StaticBody2D5"]
 position = Vector2( 0, 8 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="ground"]
 position = Vector2( -139.764, 83.6515 )
 rotation = -3.14159
 scale = Vector2( 0.118141, -1.05947 )
 collision_layer = 2
+collision_mask = 0
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground/StaticBody2D3"]
 position = Vector2( 0, 8 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="ground"]
 
@@ -117,22 +102,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="enemy" type="KinematicBody2D" parent="."]
-position = Vector2( 100.96, -53.6517 )
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="musolini2" type="AnimatedSprite" parent="enemy"]
-scale = Vector2( 1.2, 1.2 )
-frames = SubResource( 1 )
-animation = "idle"
-frame = 1
-playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy"]
-shape = SubResource( 3 )
+[node name="musolini2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 295.59, 46.9834 )
 
 [node name="PLAYER" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1.10956, 85.7133 )
+collision_mask = 6
+
+[node name="stateMachine" type="Node" parent="."]

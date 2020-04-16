@@ -10,13 +10,17 @@ var jumps:=0
 
 var on_ground:=false
 var on_wall:=0
-onready var player=get_tree().get_root().get_node("level").get_node("PLAYER")
 
-func _physics_process(delta):
-	apply_gravity(delta)
-	apply_movement(delta)
-#	print(player.position)
-	handle_chase(delta)
+onready var player:=get_tree().get_root().get_node("level").get_node("PLAYER")
+
+var player_detected:=false
+var player_in_range:=false
+
+#func _physics_process(delta):
+#	apply_gravity(delta)
+#	apply_movement(delta)
+##	print(player.position)
+#	handle_chase(delta)
 
 
 func apply_movement(delta):
@@ -35,13 +39,12 @@ func handle_chase(delta):
 	if velocity.y!=0:
 		jumps=0
 	var dir=0
-	if player.position.x > self.position.x:
+	if player.global_position.x > self.global_position.x+10:
 		dir=1
-	elif player.position.x < self.position.x:
+	elif player.global_position.x < self.global_position.x-10:
 		dir=-1
 	move(dir, delta)
-	if player.position.y<position.y:
-		print(jumps)
+	if player.global_position.y<self.global_position.y:
 		if jumps>=1:
 			jump(delta)
 
@@ -51,3 +54,26 @@ func jump(delta):
 func move(dir, delta):
 	velocity.x=speed*dir
 #living this,living this
+
+
+func _on_playerDetect_body_entered(body):
+	if body ==player:
+		player_detected=true
+		player_in_range=true
+		$playerDetect.monitoring=false
+		$inRange.monitoring=true
+		print("got him")
+
+func _on_range_body_exited(body):
+	if body==player:
+		player_detected=false
+		player_in_range=false
+		$playerDetect.monitoring=true
+		$inRange.monitoring=false
+		print("lost him")
+		
+
+
+
+
+
