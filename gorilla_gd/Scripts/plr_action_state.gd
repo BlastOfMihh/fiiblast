@@ -26,7 +26,7 @@ func get_transition(delta): #determining transitions
 func enter_state(new_state, old_state):
 	match new_state:
 		states.hold:
-			
+			#this is a change
 			pass
 		states.attack:
 			parent.anim.play("attack")
