@@ -1,9 +1,9 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
-[ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/gorilla/RUN/sprite_1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/gorilla/RUN/sprite_3.png" type="Texture" id=3]
-[ext_resource path="res://stateMachine.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/plr_move_state.gd" type="Script" id=4]
 [ext_resource path="res://Assets/gorilla/RUN/sprite_2.png" type="Texture" id=5]
 [ext_resource path="res://Assets/gorilla/RUN/sprite_4.png" type="Texture" id=6]
 [ext_resource path="res://Assets/gorilla/IDLE/sprite_1.png" type="Texture" id=7]
@@ -19,8 +19,14 @@
 [ext_resource path="res://Assets/gorilla/ATTACK/sprite_3.png" type="Texture" id=17]
 [ext_resource path="res://Assets/gorilla/ATTACK/sprite_0.png" type="Texture" id=18]
 [ext_resource path="res://Assets/gorilla/ATTACK/sprite_1.png" type="Texture" id=19]
-[ext_resource path="res://attackStateMachine.gd" type="Script" id=20]
+[ext_resource path="res://Scripts/plr_action_state.gd" type="Script" id=20]
+[ext_resource path="res://Assets/time_freeze/Untitled.png" type="Texture" id=21]
 
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 12, 14 )
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 17.3506
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -29,54 +35,53 @@ animations = [ {
 "name": "idle",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "dance",
-"speed": 5.0
+"frames": [ ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "jump",
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "run",
 "speed": 9.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": false,
-"name": "jump",
-"speed": 12.0
+"name": "wall",
+"speed": 1.0
 }, {
 "frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 13 ) ],
 "loop": false,
 "name": "attack",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 12 ) ],
-"loop": false,
-"name": "wall",
-"speed": 1.0
+"frames": [ ExtResource( 9 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "dance",
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 12, 14 )
+[sub_resource type="CanvasItemMaterial" id=3]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
-[node name="stateMachine" type="Node" parent="."]
+[node name="plr_move_state" type="Node" parent="."]
 script = ExtResource( 4 )
 
-[node name="attackStateMachine" type="Node" parent="."]
+[node name="plr_action_state" type="Node" parent="."]
 script = ExtResource( 20 )
 
-[node name="body" type="Node2D" parent="."]
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="body"]
-position = Vector2( -1, -0.905531 )
-frames = SubResource( 1 )
-animation = "idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+[node name="collision_shape" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
+
+[node name="grab_range" type="Area2D" parent="."]
+modulate = Color( 0.0352941, 0.313726, 0.156863, 1 )
+self_modulate = Color( 0.360784, 1, 0, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grab_range"]
+position = Vector2( 0, -4 )
+shape = SubResource( 4 )
 
 [node name="ground_rays" type="Node2D" parent="."]
 visible = false
@@ -129,6 +134,14 @@ enabled = true
 cast_to = Vector2( -1, 0 )
 collision_mask = 2
 
+[node name="body" type="Node2D" parent="."]
+z_index = 2
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="body"]
+position = Vector2( -1, -0.905531 )
+frames = SubResource( 1 )
+animation = "idle"
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = -14.0
 margin_top = 15.0
@@ -152,4 +165,12 @@ __meta__ = {
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
 current = true
+
+[node name="green_grad" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0.403922 )
+material = SubResource( 3 )
+position = Vector2( 0.201813, -3.36744 )
+scale = Vector2( 0.400629, 0.28232 )
+z_index = 1
+texture = ExtResource( 21 )
 [connection signal="animation_finished" from="body/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

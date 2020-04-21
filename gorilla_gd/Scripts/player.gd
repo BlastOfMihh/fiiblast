@@ -44,6 +44,7 @@ func handle_wall_jump_input():
 		velocity.x=lerp(velocity.x, 20*speed*on_wall, 0.6)
 	if Input.is_action_just_released("move_up") and velocity.y<min_jump:
 		velocity.y=min_jump
+	
 
 func handle_jump_input():
 	if Input.is_action_just_pressed("move_up") and on_ground:
@@ -69,6 +70,15 @@ func _physics_process(delta):
 	if anim.animation!=prev_anim:
 		anim_playing=true
 	prev_anim=anim.animation
+	
+	#handle time freeze anim
+	if Globals.map_freeze:
+		$green_grad.modulate=Color(10,1,.3) #35
+	else:
+		$green_grad.modulate=Color(255,255,255,0)
+func _ready():
+	$green_grad.visible=true
+#	print($collision_shape.shape.extents)
 ###
 
 

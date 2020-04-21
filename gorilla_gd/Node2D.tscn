@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://PLAYER.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/background_glacial_mountains.png" type="Texture" id=2]
-[ext_resource path="res://Assets/musolini.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Backgrounds/background_glacial_mountains.png" type="Texture" id=2]
+[ext_resource path="res://Assets/DELETE/musolini.png" type="Texture" id=3]
 [ext_resource path="res://musolini.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/icon.png" type="Texture" id=5]
+[ext_resource path="res://Assets/external-content.duckduckgo.com.png" type="Texture" id=6]
+[ext_resource path="res://Assets/DELETE/external-content.duckduckgo.com.jpg" type="Texture" id=7]
+[ext_resource path="res://Assets/DELETE/external-contdfent.duckduckgo.com.jpg" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 121.032, 10 )
@@ -15,10 +19,28 @@ __meta__ = {
 }
 
 [node name="musolini" type="Sprite" parent="."]
-visible = false
 position = Vector2( 34.8775, 80.2258 )
 scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 3 )
+
+[node name="external-contentduckduckgocom" type="Sprite" parent="."]
+position = Vector2( 9.50006, -0.84967 )
+scale = Vector2( 0.0487325, 0.0487325 )
+texture = ExtResource( 6 )
+
+[node name="external-contentduckduckgocom2" type="Sprite" parent="."]
+position = Vector2( -113.133, 11.0739 )
+scale = Vector2( 0.156022, 0.156022 )
+texture = ExtResource( 7 )
+
+[node name="icon" type="Sprite" parent="."]
+position = Vector2( 104.062, 6.0303 )
+texture = ExtResource( 5 )
+
+[node name="external-contdfentduckduckgocom" type="Sprite" parent="."]
+position = Vector2( 181.655, -28.3149 )
+scale = Vector2( 0.081058, 0.0848067 )
+texture = ExtResource( 8 )
 
 [node name="ground" type="Node2D" parent="."]
 position = Vector2( 0, -1 )
@@ -79,7 +101,7 @@ position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="ground"]
-position = Vector2( -139.764, 83.6515 )
+position = Vector2( -142.028, 80.878 )
 rotation = -3.14159
 scale = Vector2( 0.118141, -1.05947 )
 collision_layer = 2
@@ -95,6 +117,7 @@ shape = SubResource( 1 )
 [node name="ParallaxBackground" type="ParallaxBackground" parent="ground"]
 
 [node name="background_glacial_mountains" type="Sprite" parent="ground/ParallaxBackground"]
+modulate = Color( 0.945098, 1, 0, 1 )
 position = Vector2( 322.705, 223.696 )
 scale = Vector2( 2.16962, 2.09956 )
 texture = ExtResource( 2 )
@@ -103,10 +126,8 @@ __meta__ = {
 }
 
 [node name="musolini2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 295.59, 46.9834 )
+position = Vector2( 197.537, 37.9285 )
 
 [node name="PLAYER" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1.10956, 85.7133 )
+position = Vector2( 0.497845, 84.4899 )
 collision_mask = 6
-
-[node name="stateMachine" type="Node" parent="."]
