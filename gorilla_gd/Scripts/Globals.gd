@@ -8,5 +8,3 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("freeze_map"):
 		map_freeze=!map_freeze
 	
-# mih says hi
-#jeff says hi

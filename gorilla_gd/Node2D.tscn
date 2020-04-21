@@ -29,7 +29,7 @@ scale = Vector2( 0.0487325, 0.0487325 )
 texture = ExtResource( 6 )
 
 [node name="external-contentduckduckgocom2" type="Sprite" parent="."]
-position = Vector2( -113.133, 11.0739 )
+position = Vector2( -124.946, 13.324 )
 scale = Vector2( 0.156022, 0.156022 )
 texture = ExtResource( 7 )
 
