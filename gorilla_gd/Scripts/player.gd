@@ -17,6 +17,12 @@ var gravity=normal_gravity
 
 onready var anim=$body/AnimatedSprite
 onready var body=$body
+
+var anim_playing:=false
+var prev_anim=null
+
+var available_grab_body=null
+var grabbed_body=null
 #no _physiscs_process
 
 func check_on_ground():
@@ -59,14 +65,17 @@ func handle_move_input():
 	anim.frames
 
 
+func _on_grab_range_body_entered(body):
+	available_grab_body=body
+	
+func _on_grab_range_body_exited(body):
+	available_grab_body =null
+
 func _on_AnimatedSprite_animation_finished():
 	anim_playing=false
 
-
-## if playing animations
-var anim_playing:=false
-var prev_anim
 func _physics_process(delta):
+	# if playing animations
 	if anim.animation!=prev_anim:
 		anim_playing=true
 	prev_anim=anim.animation
@@ -76,13 +85,7 @@ func _physics_process(delta):
 		$green_grad.modulate=Color(10,1,.3) #35
 	else:
 		$green_grad.modulate=Color(255,255,255,0)
+	
 func _ready():
 	$green_grad.visible=true
-#	print($collision_shape.shape.extents)
-###
-
-
-
-
-
 

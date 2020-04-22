@@ -87,11 +87,7 @@ tracks/3/keys = {
 "values": [ false, false, true, true ]
 }
 
-[node name="EnemyFolder" type="Node2D"]
-
-[node name="tempParent" type="Node2D" parent="."]
-
-[node name="musolini2" type="KinematicBody2D" parent="."]
+[node name="musolini2" type="KinematicBody2D"]
 position = Vector2( 0.552078, 0.736103 )
 collision_layer = 6
 collision_mask = 3
@@ -100,33 +96,35 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="enemy_move_state" type="Node" parent="musolini2"]
+[node name="enemy_move_state" type="Node" parent="."]
 script = ExtResource( 1 )
 
-[node name="enemy_action_state" type="Node" parent="musolini2"]
+[node name="enemy_action_state" type="Node" parent="."]
 script = ExtResource( 7 )
 
-[node name="in_range" type="Area2D" parent="musolini2"]
+[node name="in_range" type="Area2D" parent="."]
 visible = false
 modulate = Color( 0.364706, 0.364706, 0.364706, 1 )
 self_modulate = Color( 0.717647, 0.133333, 0.678431, 1 )
+collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="musolini2/in_range"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="in_range"]
 shape = SubResource( 1 )
 
-[node name="player_detect" type="Area2D" parent="musolini2"]
+[node name="player_detect" type="Area2D" parent="."]
 visible = false
+collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="musolini2/player_detect"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detect"]
 modulate = Color( 0.0901961, 0.356863, 0, 1 )
 self_modulate = Color( 1, 0.909804, 0, 1 )
 shape = SubResource( 2 )
 
-[node name="collision_shape" type="CollisionShape2D" parent="musolini2"]
+[node name="collision_shape" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource( 3 )
 
-[node name="move_text" type="RichTextLabel" parent="musolini2"]
+[node name="move_text" type="RichTextLabel" parent="."]
 margin_left = -21.0
 margin_top = 21.0
 margin_right = 33.0
@@ -135,7 +133,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="action_text" type="RichTextLabel" parent="musolini2"]
+[node name="action_text" type="RichTextLabel" parent="."]
 margin_left = -21.0
 margin_top = -33.0
 margin_right = 25.0
@@ -144,18 +142,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="sprite" type="AnimatedSprite" parent="musolini2"]
+[node name="sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 4 )
 animation = "idle"
+frame = 1
 playing = true
 
-[node name="animationPlayer" type="AnimationPlayer" parent="musolini2"]
+[node name="animationPlayer" type="AnimationPlayer" parent="."]
 playback_process_mode = 0
 anims/none = SubResource( 5 )
 anims/patrol = SubResource( 6 )
 __meta__ = {
 "_editor_description_": "yep"
 }
-[connection signal="body_exited" from="musolini2/in_range" to="musolini2" method="_on_range_body_exited"]
-[connection signal="body_entered" from="musolini2/player_detect" to="musolini2" method="_on_player_detect_body_entered"]
+[connection signal="body_exited" from="in_range" to="." method="_on_range_body_exited"]
+[connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]

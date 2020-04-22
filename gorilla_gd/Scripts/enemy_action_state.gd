@@ -1,7 +1,7 @@
 extends StateMachine
 
 onready var plr=get_tree().get_root().get_node("level").get_node("PLAYER")
-
+onready var move_state=parent.get_node("enemey_move_state")
 
 func _ready():
 	add_state("none")
@@ -11,7 +11,7 @@ func _ready():
 func state_logic(delta): #handle the logic i guess
 	
 	parent.get_node("action_text").text=states.keys()[state]
-	if state==states.chase:
+	if !Globals.map_freeze and state==states.chase:
 		var offset=10
 		var dir=0
 		if plr.global_position.y < parent.global_position.y-offset:
@@ -20,15 +20,17 @@ func state_logic(delta): #handle the logic i guess
 			dir=1
 		elif plr.global_position.x < parent.global_position.x-offset:
 			dir=-1
+		if parent.plr_in_range:
+			print("KILLED")
 		parent.move(dir,delta)
 
 func get_transition(delta): #determining transitions
 	match state:
 		states.none:
-			if get_parent().plr_in_range:
+			if parent.plr_in_range:
 				return states.chase
 		states.chase:
-			if !get_parent().plr_in_range:
+			if !parent.plr_in_range:
 				return states.none
 	return null
 	

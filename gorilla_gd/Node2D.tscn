@@ -82,7 +82,7 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ground/StaticBody2D4"]
+[node name="collision_shape" type="CollisionShape2D" parent="ground/StaticBody2D4"]
 position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
@@ -126,8 +126,8 @@ __meta__ = {
 }
 
 [node name="musolini2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 197.537, 37.9285 )
+position = Vector2( 164.667, 53.8593 )
 
 [node name="PLAYER" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0.497845, 84.4899 )
+position = Vector2( 63.6162, 78.6419 )
 collision_mask = 6

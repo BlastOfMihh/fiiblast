@@ -39,7 +39,7 @@ func get_transition(delta): #determining transitions
 			if parent.velocity.y==0:
 				return states.idle
 		states.fall:
-			if parent.velocity.x==0:
+			if parent.velocity==Vector2.ZERO:
 				return states.idle
 	return null
 
