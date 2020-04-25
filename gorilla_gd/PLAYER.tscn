@@ -40,6 +40,11 @@ animations = [ {
 "name": "jump",
 "speed": 12.0
 }, {
+"frames": [ ExtResource( 12 ) ],
+"loop": false,
+"name": "wall",
+"speed": 1.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "run",
@@ -50,11 +55,6 @@ animations = [ {
 "name": "attack",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 12 ) ],
-"loop": false,
-"name": "wall",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 9 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "dance",
@@ -64,6 +64,7 @@ animations = [ {
 [sub_resource type="CanvasItemMaterial" id=4]
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 6
 script = ExtResource( 1 )
 
 [node name="plr_move_state" type="Node" parent="."]
