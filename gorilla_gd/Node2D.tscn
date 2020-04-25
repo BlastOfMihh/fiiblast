@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://PLAYER.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Backgrounds/background_glacial_mountains.png" type="Texture" id=2]
@@ -8,36 +8,40 @@
 [ext_resource path="res://Assets/external-content.duckduckgo.com.png" type="Texture" id=6]
 [ext_resource path="res://Assets/DELETE/external-content.duckduckgo.com.jpg" type="Texture" id=7]
 [ext_resource path="res://Assets/DELETE/external-contdfent.duckduckgo.com.jpg" type="Texture" id=8]
+[ext_resource path="res://rocket.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 121.032, 10 )
 
-[node name="level" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 position = Vector2( 40.7652, 45.9417 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 55.7815 ]
 }
 
-[node name="musolini" type="Sprite" parent="."]
+[node name="lario" type="Node2D" parent="."]
+visible = false
+
+[node name="musolini" type="Sprite" parent="lario"]
 position = Vector2( 34.8775, 80.2258 )
 scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 3 )
 
-[node name="external-contentduckduckgocom" type="Sprite" parent="."]
+[node name="external-contentduckduckgocom" type="Sprite" parent="lario"]
 position = Vector2( 9.50006, -0.84967 )
 scale = Vector2( 0.0487325, 0.0487325 )
 texture = ExtResource( 6 )
 
-[node name="external-contentduckduckgocom2" type="Sprite" parent="."]
+[node name="external-contentduckduckgocom2" type="Sprite" parent="lario"]
 position = Vector2( -124.946, 13.324 )
 scale = Vector2( 0.156022, 0.156022 )
 texture = ExtResource( 7 )
 
-[node name="icon" type="Sprite" parent="."]
-position = Vector2( 104.062, 6.0303 )
+[node name="icon" type="Sprite" parent="lario"]
+position = Vector2( 103.839, -4.91835 )
 texture = ExtResource( 5 )
 
-[node name="external-contdfentduckduckgocom" type="Sprite" parent="."]
+[node name="external-contdfentduckduckgocom" type="Sprite" parent="lario"]
 position = Vector2( 181.655, -28.3149 )
 scale = Vector2( 0.081058, 0.0848067 )
 texture = ExtResource( 8 )
@@ -59,7 +63,7 @@ position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="ground"]
-position = Vector2( 104.845, -15.9635 )
+position = Vector2( 104.845, -22.6668 )
 rotation = -3.14159
 scale = Vector2( 0.261165, -2.79692 )
 collision_layer = 2
@@ -126,8 +130,11 @@ __meta__ = {
 }
 
 [node name="musolini2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 164.667, 53.8593 )
+position = Vector2( 238.216, 38.277 )
 
 [node name="PLAYER" parent="." instance=ExtResource( 1 )]
-position = Vector2( 63.6162, 78.6419 )
+position = Vector2( 63.6162, 78.2066 )
 collision_mask = 6
+
+[node name="rocket" parent="." instance=ExtResource( 9 )]
+position = Vector2( 279.112, 5.65157 )

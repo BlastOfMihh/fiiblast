@@ -27,7 +27,8 @@ var grabbed_body=null
 
 func check_on_ground():
 	for ray in $ground_rays.get_children():
-		if ray.is_colliding(): return true
+		if ray.is_colliding(): 
+			return true
 	return false
 func check_on_wall():
 	for ray in $wall_rays_left.get_children():

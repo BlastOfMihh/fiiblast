@@ -12,10 +12,11 @@ var jump_count:=0
 var on_ground:=false
 var on_wall:=0
 
-onready var plr:=get_tree().get_root().get_node("level").get_node("PLAYER")
+onready var plr:=get_tree().get_root().get_node(get_tree().current_scene.name).get_node("PLAYER")
 
 onready var move_state=$enemy_move_state
 onready var action_state=$enemy_action_state
+onready var anim=$sprite
 
 var plr_in_range:=false
 
