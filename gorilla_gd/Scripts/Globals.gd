@@ -12,8 +12,9 @@ func _physics_process(delta):
 		emit_signal("freeze_time")
 		map_freeze=!map_freeze
 		var player=get_tree().get_root().get_node(get_tree().current_scene.name).get_node("Player")
-		connect("freeze_time",player,"freeze_time")
-		#.get_node("Player")
+		#connect("freeze_time",player,"freeze_time")
+		SlowTime.start()
+		player.freeze_time()
 	if Input.is_key_pressed(KEY_0):
 		get_tree().reload_current_scene()
 	

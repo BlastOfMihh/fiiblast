@@ -83,10 +83,12 @@ func _physics_process(delta):
 	
 func freeze_time():
 	if !Globals.map_freeze:
-		$animation_player.play("turn_tf")
-	else:
 		$animation_player.play_backwards("turn_tf")
+	else:
+		$animation_player.play("turn_tf")
 	
 func _ready():
 	$green_grad.visible=true
+	$animation_player.play("turn_tf")
+	$animation_player.play_backwards("turn_tf")
 
