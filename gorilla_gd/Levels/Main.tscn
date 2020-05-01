@@ -40,4 +40,3 @@ margin_bottom = 166.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Play" parent="Centerrow/Buttons" instance=ExtResource( 1 )]
