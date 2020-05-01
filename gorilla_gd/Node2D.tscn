@@ -20,7 +20,6 @@ __meta__ = {
 }
 
 [node name="lario" type="Node2D" parent="."]
-visible = false
 
 [node name="musolini" type="Sprite" parent="lario"]
 position = Vector2( 34.8775, 80.2258 )
@@ -119,7 +118,7 @@ position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="ground"]
-position = Vector2( -142.028, 80.878 )
+position = Vector2( -345.473, 82.1185 )
 rotation = -3.14159
 scale = Vector2( 0.118141, -1.05947 )
 collision_layer = 2
@@ -144,10 +143,12 @@ __meta__ = {
 }
 
 [node name="musolini2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 428.885, 78.2494 )
+position = Vector2( 398.049, -53.6262 )
+detect_radius = 40
+in_range_radius = 100
 
-[node name="PLAYER" parent="." instance=ExtResource( 1 )]
-position = Vector2( 63.6162, 78.2066 )
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 39.9779, 5.18694 )
 
 [node name="rocket" parent="." instance=ExtResource( 9 )]
 position = Vector2( 256.774, 6.66692 )

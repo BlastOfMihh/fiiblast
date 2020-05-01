@@ -5,7 +5,6 @@
 [ext_resource path="res://Assets/rocktet/sprite_1.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/rocket.gd" type="Script" id=4]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 26.7704, 5.88839 )
 
@@ -30,7 +29,6 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="body"]
 position = Vector2( 4, 0 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="rocket_move_state" type="Node" parent="."]
