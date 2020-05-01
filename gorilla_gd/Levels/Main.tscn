@@ -1,43 +1,8 @@
-[gd_scene load_steps=3 format=2]
-
-[ext_resource path="res://Nicele.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Levels/sprite_0.png" type="Texture" id=2]
+[gd_scene format=2]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0423
-margin_top = -187.061
-margin_right = 20.0423
-margin_bottom = -187.061
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 31.0
-margin_top = 24.0
-margin_right = 610.0
-margin_bottom = 337.0
-
-[node name="Logo" type="TextureRect" parent="VBoxContainer"]
-margin_right = 579.0
-margin_bottom = 512.0
-texture = ExtResource( 2 )
-
-[node name="Centerrow" type="HBoxContainer" parent="."]
-margin_top = 372.0
-margin_right = 672.0
-margin_bottom = 538.0
-size_flags_horizontal = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Buttons" type="VBoxContainer" parent="Centerrow"]
-margin_right = 672.0
-margin_bottom = 166.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Play" parent="Centerrow/Buttons" instance=ExtResource( 1 )]

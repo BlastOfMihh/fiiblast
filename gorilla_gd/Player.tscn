@@ -48,15 +48,15 @@ animations = [ {
 "name": "run",
 "speed": 9.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 13 ) ],
-"loop": false,
-"name": "attack",
-"speed": 12.0
-}, {
 "frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 12 ), ExtResource( 22 ) ],
 "loop": false,
 "name": "wall_slide",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "attack",
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 9 ), ExtResource( 14 ) ],
 "loop": true,
@@ -66,12 +66,11 @@ animations = [ {
 
 [sub_resource type="CanvasItemMaterial" id=4]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "def"
 length = 0.1
 
-[sub_resource type="Animation" id=5]
-resource_name = "turn_tf"
+[sub_resource type="Animation" id=6]
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:self_modulate:r")
 tracks/0/interp = 1
@@ -232,8 +231,8 @@ texture = ExtResource( 21 )
 [node name="animation_player" type="AnimationPlayer" parent="."]
 root_node = NodePath("../green_grad")
 method_call_mode = 1
-anims/def = SubResource( 6 )
-anims/turn_tf = SubResource( 5 )
+anims/def = SubResource( 5 )
+anims/turn_tf = SubResource( 6 )
 [connection signal="body_entered" from="grab_range" to="." method="_on_grab_range_body_entered"]
 [connection signal="body_exited" from="grab_range" to="." method="_on_grab_range_body_exited"]
 [connection signal="animation_finished" from="body/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

@@ -67,7 +67,11 @@ func handle_move_input():
 
 
 func _on_grab_range_body_entered(body):
-	available_grab_body=body
+	if body.get_groups().size():
+		if body.get_groups()[0]!="no_grab":
+			available_grab_body=body
+	else:
+		available_grab_body=body
 	
 func _on_grab_range_body_exited(body):
 	available_grab_body =null

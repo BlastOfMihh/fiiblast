@@ -23,7 +23,7 @@ func get_transition(delta): #determining transitions
 			if false and Input.is_action_just_pressed("attack"):#disabeling attack
 				return states.attack
 		states.hold:
-			if Input.is_action_just_pressed("grab") and parent.grabbed_body!=null:
+			if !Globals.map_freeze and Input.is_action_just_pressed("grab") and parent.grabbed_body!=null:
 				return states.none
 		states.attack:
 			if parent.anim.animation=="attack" and parent.anim_playing==false:
