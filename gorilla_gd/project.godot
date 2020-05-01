@@ -21,12 +21,13 @@ _global_script_class_icons={
 [application]
 
 config/name="GORRILA"
-run/main_scene="res://Node2D.tscn"
+run/main_scene="res://PlayGround.tscn"
 config/icon="res://Assets/icon.png"
 
 [autoload]
 
 Globals="*res://Scripts/Globals.gd"
+SlowTime="*res://Scripts/SlowTime.gd"
 
 [display]
 
