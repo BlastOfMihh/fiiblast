@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://PLAYER.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Backgrounds/background_glacial_mountains.png" type="Texture" id=2]
 [ext_resource path="res://Assets/DELETE/musolini.png" type="Texture" id=3]
-[ext_resource path="res://musolini.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Musolini.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/icon.png" type="Texture" id=5]
 [ext_resource path="res://Assets/external-content.duckduckgo.com.png" type="Texture" id=6]
 [ext_resource path="res://Assets/DELETE/external-content.duckduckgo.com.jpg" type="Texture" id=7]
 [ext_resource path="res://Assets/DELETE/external-contdfent.duckduckgo.com.jpg" type="Texture" id=8]
-[ext_resource path="res://rocket.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Rocket.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 121.032, 10 )
@@ -76,6 +76,20 @@ __meta__ = {
 position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
+[node name="StaticBody2D6" type="StaticBody2D" parent="ground"]
+position = Vector2( 293.746, 82.7934 )
+rotation = -3.14159
+scale = Vector2( 0.347181, -1.57118 )
+collision_layer = 2
+collision_mask = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground/StaticBody2D6"]
+position = Vector2( 0, 8 )
+shape = SubResource( 1 )
+
 [node name="StaticBody2D4" type="StaticBody2D" parent="ground"]
 position = Vector2( -215.687, -294.976 )
 rotation = -3.14159
@@ -130,11 +144,10 @@ __meta__ = {
 }
 
 [node name="musolini2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 238.216, 38.277 )
+position = Vector2( 428.885, 78.2494 )
 
 [node name="PLAYER" parent="." instance=ExtResource( 1 )]
 position = Vector2( 63.6162, 78.2066 )
-collision_mask = 6
 
 [node name="rocket" parent="." instance=ExtResource( 9 )]
 position = Vector2( 256.774, 6.66692 )

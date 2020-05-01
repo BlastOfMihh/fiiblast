@@ -19,28 +19,28 @@ func state_logic(delta): #handle the logic i guess
 	parent.get_node("move_text").text=states.keys()[state]
 
 func get_transition(delta): #determining transitions
-	
-	match state:
-		states.idle:
-			if parent.velocity.y<0:
-				return states.jump
-			if parent.velocity.x!=0:
-				return states.run
-			if parent.velocity.y>0:
-				return states.fall
-		states.run:
-			if parent.velocity.y<0:
-				return states.jump
-			if parent.velocity==Vector2.ZERO:
-				return states.idle
-		states.jump:
-			if parent.velocity.y>0:
-				return states.fall
-			if parent.velocity.y==0:
-				return states.idle
-		states.fall:
-			if parent.velocity==Vector2.ZERO:
-				return states.idle
+	if !Globals.map_freeze:
+		match state:
+			states.idle:
+				if parent.velocity.y<0:
+					return states.jump
+				if parent.velocity.x!=0:
+					return states.run
+				if parent.velocity.y>0:
+					return states.fall
+			states.run:
+				if parent.velocity.y<0:
+					return states.jump
+				if parent.velocity==Vector2.ZERO:
+					return states.idle
+			states.jump:
+				if parent.velocity.y>0:
+					return states.fall
+				if parent.velocity.y==0:
+					return states.idle
+			states.fall:
+				if parent.velocity==Vector2.ZERO:
+					return states.idle
 	return null
 
 func enter_state(new_state, old_state):

@@ -7,17 +7,17 @@ func _ready():
 	state=0
 	add_state("run")
 	add_state("jump")
-	add_state("wall_jump")
+	add_state("wall_slide")
 	add_state("fall")
 	add_state("dance")
 
 func state_logic(delta): #handle the logic i guess
-#	if state!=states.wall_jump:
+#	if state!=states.wall_slide:
 	parent.handle_move_input()
 	if [states.run,states.idle, states.jump].has(state): 
 		parent.handle_jump_input()
-	elif states.wall_jump==state:
-		parent.handle_wall_jump_input()
+	elif states.wall_slide==state:
+		parent.handle_wall_slide_input()
 	parent.apply_gravity(delta)
 	parent.apply_movement(delta)
 	
@@ -49,7 +49,7 @@ func get_transition(delta): #determining transitions
 				return states.fall
 			if parent.velocity.y<0:
 				return states.jump
-		states.wall_jump:
+		states.wall_slide:
 			if !parent.on_wall or parent.velocity.x!=0:
 				return states.jump
 			if parent.on_ground:
@@ -60,14 +60,14 @@ func get_transition(delta): #determining transitions
 			if parent.velocity.y>0:
 				return states.fall
 			if parent.on_wall:
-				return states.wall_jump
+				return states.wall_slide
 		states.fall:
 			if parent.on_ground:
 				return states.idle
 			if parent.velocity.y<=0:
 				return states.jump
 			if parent.on_wall:
-				return states.wall_jump
+				return states.wall_slide
 #	print(state)
 	return null
 	
@@ -84,13 +84,13 @@ func enter_state(new_state, old_state):
 				parent.anim.play("run")
 			states.fall:
 				parent.anim.play("jump")
-			states.wall_jump:
-				parent.anim.play("wall")
+			states.wall_slide:
+				parent.anim.play("wall_slide")
 				parent.gravity=parent.wall_gravity
 				parent.velocity.y=-12
 
 func exit_state(old_state, new_state):
-	if old_state==states.wall_jump:
+	if old_state==states.wall_slide:
 		parent.gravity=parent.normal_gravity
 #j'en ai merre
 #totusi exista iubire

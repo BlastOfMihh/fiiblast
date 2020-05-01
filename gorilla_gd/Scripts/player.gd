@@ -45,7 +45,7 @@ func apply_movement(delta):
 	on_ground=check_on_ground()
 	on_wall=check_on_wall()
 
-func handle_wall_jump_input():
+func handle_wall_slide_input():
 	if Input.is_action_just_pressed("move_up"):
 		velocity.y=max_jump
 		velocity.x=lerp(velocity.x, 20*speed*on_wall, 0.6)

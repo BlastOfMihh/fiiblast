@@ -4,7 +4,7 @@ const SLOPE_STOP:=64
 var gravity:=Globals.gravity
 var velocity:=Vector2()
 
-var speed=180
+var speed=120
 var max_jump=-200
 var max_jump_count:=1
 var jump_count:=0

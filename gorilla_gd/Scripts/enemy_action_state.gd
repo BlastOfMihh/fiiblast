@@ -24,13 +24,14 @@ func state_logic(delta): #handle the logic i guess
 
 # warning-ignore:unused_argument
 func get_transition(delta): #determining transitions
-	match state:
-		states.none:
-			if parent.plr_in_range:
-				return states.chase
-		states.chase:
-			if !parent.plr_in_range:
-				return states.none
+	if !Globals.map_freeze:
+		match state:
+			states.none:
+				if parent.plr_in_range:
+					return states.chase
+			states.chase:
+				if !parent.plr_in_range:
+					return states.none
 	return null
 	
 # warning-ignore:unused_argument

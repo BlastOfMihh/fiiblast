@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/gorilla/RUN/sprite_1.png" type="Texture" id=2]
@@ -21,6 +21,9 @@
 [ext_resource path="res://Assets/gorilla/ATTACK/sprite_1.png" type="Texture" id=19]
 [ext_resource path="res://Scripts/plr_action_state.gd" type="Script" id=20]
 [ext_resource path="res://Assets/time_freeze/Untitled.png" type="Texture" id=21]
+[ext_resource path="res://Assets/gorilla/WALL_SLIDE/sprite_1.png" type="Texture" id=22]
+[ext_resource path="res://Assets/gorilla/WALL_SLIDE/sprite_0.png" type="Texture" id=23]
+[ext_resource path="res://Assets/gorilla/WALL_SLIDE/sprite_2.png" type="Texture" id=24]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 14 )
@@ -40,11 +43,6 @@ animations = [ {
 "name": "jump",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 12 ) ],
-"loop": false,
-"name": "wall",
-"speed": 1.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "run",
@@ -59,6 +57,11 @@ animations = [ {
 "loop": true,
 "name": "dance",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 12 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "wall_slide",
+"speed": 10.0
 } ]
 
 [sub_resource type="CanvasItemMaterial" id=4]
@@ -142,6 +145,7 @@ z_index = 2
 position = Vector2( -1, -0.905531 )
 frames = SubResource( 3 )
 animation = "idle"
+frame = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = -17.0
