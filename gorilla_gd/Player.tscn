@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/gorilla/RUN/sprite_1.png" type="Texture" id=2]
@@ -53,18 +53,22 @@ animations = [ {
 "name": "attack",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "dance",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 12 ), ExtResource( 22 ) ],
 "loop": false,
 "name": "wall_slide",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "dance",
+"speed": 5.0
 } ]
 
 [sub_resource type="CanvasItemMaterial" id=4]
+
+[sub_resource type="Animation" id=6]
+resource_name = "def"
+length = 0.1
 
 [sub_resource type="Animation" id=5]
 resource_name = "turn_tf"
@@ -210,21 +214,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="camera" type="Camera2D" parent="."]
 visible = false
 position = Vector2( 0, -20 )
 current = true
+smoothing_enabled = true
+smoothing_speed = 10.0
 
 [node name="green_grad" type="Sprite" parent="."]
-self_modulate = Color( 0, 0, 0, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 4 )
-position = Vector2( 0.201813, -3.36744 )
+position = Vector2( -0.280487, -3.84972 )
 scale = Vector2( 0.400629, 0.28232 )
 z_index = 1
 texture = ExtResource( 21 )
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
 root_node = NodePath("../green_grad")
+method_call_mode = 1
+anims/def = SubResource( 6 )
 anims/turn_tf = SubResource( 5 )
 [connection signal="body_entered" from="grab_range" to="." method="_on_grab_range_body_entered"]
 [connection signal="body_exited" from="grab_range" to="." method="_on_grab_range_body_exited"]
