@@ -23,6 +23,8 @@ func state_logic(delta): #handle the logic i guess
 				dir=-1
 			#if parent.on_wall:
 				#parent.jump(delta)
+			if parent.on_wall:
+				parent.jump(delta)
 			parent.move(dir,delta)
 
 # warning-ignore:unused_argument
