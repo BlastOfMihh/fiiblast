@@ -1,19 +1,31 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets/gorilla/DANCE/sprite_0.png" type="Texture" id=1]
+[ext_resource path="res://Assets/gorila_friend/sprite_0.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Coin.gd" type="Script" id=2]
+[ext_resource path="res://Assets/gorila_friend/sprite_1.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.1161
 height = 14.0993
 
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.4
+} ]
+
 [node name="Coin" type="Area2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 1 )
-flip_h = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.5411, 4.73466 )
+scale = Vector2( 0.25, 0.27 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
 [connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]
