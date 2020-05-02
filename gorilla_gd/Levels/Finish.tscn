@@ -117,13 +117,14 @@ texture = ExtResource( 8 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D"]
 position = Vector2( 72.0209, 142.811 )
 frames = SubResource( 1 )
-frame = 1
+frame = 4
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Node2D"]
 position = Vector2( 121.083, 139.553 )
 frames = SubResource( 2 )
 animation = "new"
+frame = 3
 playing = true
 flip_h = true
 
@@ -136,19 +137,18 @@ flip_h = true
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Node2D"]
 position = Vector2( 235.885, 138.629 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 flip_h = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Node2D"]
 position = Vector2( 186.025, 141.091 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Node2D"]
 position = Vector2( 311.292, 138.629 )
 frames = SubResource( 6 )
-frame = 2
 playing = true
 flip_h = true
 
