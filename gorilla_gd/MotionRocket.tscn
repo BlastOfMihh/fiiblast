@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/rocktet/sprite_1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/rocktet/sprite_2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/rocktet/sprite_0.png" type="Texture" id=3]
+[ext_resource path="res://Killer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://MotionRocket.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 27.3597, 6.56094 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 7.58479
+height = 46.6227
+
+[node name="MotionRocket" type="KinematicBody2D"]
+collision_layer = 6
+collision_mask = 7
+script = ExtResource( 5 )
+
+[node name="collision_shape" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 5, 0 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="Killer" parent="." instance=ExtResource( 4 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killer"]
+rotation = 1.5708
+shape = SubResource( 3 )
