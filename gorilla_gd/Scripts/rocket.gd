@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 
 export var dir=-1
-export var speed=20
+export var speed=15
 export var max_speed=2000
 
 var velocity=Vector2.ZERO
@@ -17,7 +17,7 @@ func apply_movement(delta):
 	velocity=move_and_slide(velocity,Vector2.UP)
 
 func apply_gravity(delta):
-	velocity.y+=Globals.gravity
+	velocity.y+=Globals.gravity*delta
 
 func move(dir,speed):
 	velocity.x=speed*dir

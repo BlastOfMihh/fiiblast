@@ -18,12 +18,13 @@ func state_logic(delta): #handle the logic i guess
 func get_transition(delta): #determining transitions
 	match state:
 		states.none:
-			if Input.is_action_just_pressed("grab") and parent.available_grab_body!=null:
-				return states.hold
-			if false and Input.is_action_just_pressed("attack"):#disabeling attack
-				return states.attack
+			if Globals.map_freeze:
+				if Input.is_action_just_pressed("grab") and parent.available_grab_body!=null:
+					return states.hold
+				if false and Input.is_action_just_pressed("attack"):#disabeling attack
+					return states.attack
 		states.hold:
-			if !Globals.map_freeze and Input.is_action_just_pressed("grab") and parent.grabbed_body!=null:
+			if !Globals.map_freeze or (Input.is_action_just_pressed("grab") and parent.grabbed_body!=null):
 				return states.none
 		states.attack:
 			if parent.anim.animation=="attack" and parent.anim_playing==false:

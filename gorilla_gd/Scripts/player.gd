@@ -65,6 +65,9 @@ func handle_move_input():
 	velocity.x= lerp(velocity.x, move_x*speed, 0.8)
 	anim.frames
 
+func die():
+	get_tree().reload_current_scene()
+
 
 func _on_grab_range_body_entered(body):
 	if body.get_groups().size():
@@ -78,6 +81,7 @@ func _on_grab_range_body_exited(body):
 
 func _on_AnimatedSprite_animation_finished():
 	anim_playing=false
+
 
 func _physics_process(delta):
 	# if playing animations

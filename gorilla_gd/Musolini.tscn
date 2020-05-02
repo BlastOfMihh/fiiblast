@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/enemy_move_state.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/enemy.gd" type="Script" id=2]
@@ -99,6 +99,10 @@ tracks/3/keys = {
 "values": [ false, false, true, true ]
 }
 
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 15.6781
+height = 14.7184
+
 [node name="musolini2" type="KinematicBody2D"]
 position = Vector2( 0.552078, 0.736103 )
 collision_layer = 6
@@ -107,8 +111,8 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-detect_radius = 500
-in_range_radius = 200
+detect_radius = 600
+in_range_radius = 400
 
 [node name="enemy_move_state" type="Node" parent="."]
 script = ExtResource( 1 )
@@ -117,6 +121,7 @@ script = ExtResource( 1 )
 script = ExtResource( 7 )
 
 [node name="in_range" type="Area2D" parent="."]
+visible = false
 modulate = Color( 0.364706, 0.364706, 0.364706, 1 )
 self_modulate = Color( 0.717647, 0.133333, 0.678431, 1 )
 collision_layer = 0
@@ -125,6 +130,7 @@ collision_layer = 0
 shape = SubResource( 1 )
 
 [node name="player_detect" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_detect"]
@@ -182,5 +188,11 @@ anims/patrol = SubResource( 6 )
 __meta__ = {
 "_editor_description_": "yep"
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 7 )
 [connection signal="body_exited" from="in_range" to="." method="_on_range_body_exited"]
 [connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

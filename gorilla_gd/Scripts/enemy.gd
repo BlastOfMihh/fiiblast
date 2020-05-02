@@ -8,6 +8,8 @@ func _ready():
 	$player_detect/CollisionShape2D.shape.radius=detect_radius
 
 
+signal kill
+
 const SLOPE_STOP:=64
 var gravity:=Globals.gravity
 var velocity:=Vector2()
@@ -71,15 +73,10 @@ func _on_range_body_exited(body):
 			plr_in_range=false
 			$player_detect.monitoring=true
 			$in_range.monitoring=false
-			print("lost him")
 
 
 
-
-
-
-
-
-
-
-
+func _on_Area2D_body_entered(body):
+	if !Globals.map_freeze and body.name=="Player":
+		connect("kill",plr,"die")
+		emit_signal("kill")
