@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Levels/tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Rocket.tscn" type="PackedScene" id=3]
+
+[node name="level3" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( 131068, 1610612743, 0, 65537, 1610612743, 0, 65539, 1610612743, 0, 65540, 1610612743, 0, 65541, 1610612743, 0, 65542, 1610612743, 0, 65543, 1610612743, 0, 65544, 1610612743, 0, 196618, 1610612743, 0, 196619, 1610612743, 0, 196620, 1610612743, 0, 196621, 1610612743, 0, 196622, 1610612743, 0, 196623, 1610612743, 0, 196624, 1610612743, 0, 196625, 1610612743, 0, 196626, 1610612743, 0, 196627, 1610612743, 0, 196628, 1610612743, 0, 196629, 1610612743, 0, 196630, 1610612743, 0, 196631, 1610612743, 0, 196632, 1610612743, 0, 196633, 1610612743, 0, 196634, 1610612743, 0, 196635, 1610612743, 0, 196636, 1610612743, 0, 196637, 1610612743, 0, 196638, 1610612743, 0, 196639, 1610612743, 0, 196640, 1610612743, 0, 196641, 1610612743, 0, 196642, 1610612743, 0, 196643, 1610612743, 0, 196644, 1610612743, 0, 196645, 1610612743, 0, 196646, 1610612743, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 15.1565, -27.2945 )
+
+[node name="rocket" parent="." instance=ExtResource( 3 )]
+position = Vector2( -3.56448, 3.33303 )
+rotation = -3.13112
