@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/DELETE/musolini.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Backgrounds/background_glacial_mountains.png" type="Texture" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Assets/laser_musolini/sprite_3.png" type="Texture" id=16]
 [ext_resource path="res://Assets/laser_musolini/sprite_2.png" type="Texture" id=17]
 [ext_resource path="res://MotionRocket.tscn" type="PackedScene" id=18]
+[ext_resource path="res://RocketMusolini.tscn" type="PackedScene" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 121.032, 10 )
@@ -76,7 +77,7 @@ position = Vector2( 0, -1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ground"]
 position = Vector2( 4.90561, 102.885 )
-scale = Vector2( 6.17916, 1.83754 )
+scale = Vector2( 13.7074, 4.80487 )
 collision_layer = 2
 collision_mask = 0
 __meta__ = {
@@ -168,30 +169,36 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="musolini2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 363.324, 37.5271 )
+[node name="RcoketMusolini" parent="." instance=ExtResource( 19 )]
+position = Vector2( -693.547, 65.9021 )
+detect_radius = 120
+in_range_radius = 200
+
+[node name="Player" parent="." instance=ExtResource( 8 )]
+position = Vector2( -506.214, 69.0639 )
+
+[node name="muigigi" type="Node2D" parent="."]
+
+[node name="musolini2" parent="muigigi" instance=ExtResource( 7 )]
+position = Vector2( -1543.06, 57.0342 )
 detect_radius = 300
 in_range_radius = 300
 
-[node name="Player" parent="." instance=ExtResource( 8 )]
-position = Vector2( -132.029, 65.1251 )
-
-[node name="MotionRocket" parent="." instance=ExtResource( 18 )]
+[node name="MotionRocket" parent="muigigi" instance=ExtResource( 18 )]
 position = Vector2( 41.18, 51.9117 )
 
-[node name="rocket" parent="." instance=ExtResource( 9 )]
+[node name="rocket" parent="muigigi" instance=ExtResource( 9 )]
 position = Vector2( 256.135, 6.66692 )
 speed = 400
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="muigigi"]
 position = Vector2( -212.136, -272.176 )
 frames = SubResource( 2 )
-frame = 1
+frame = 3
 playing = true
 flip_h = true
 
-[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="muigigi"]
 position = Vector2( -75.72, -377.635 )
 frames = SubResource( 3 )
-frame = 2
 playing = true
