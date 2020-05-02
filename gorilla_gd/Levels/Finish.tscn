@@ -26,7 +26,6 @@
 [ext_resource path="res://Assets/ICONS/sprite_0.png" type="Texture" id=24]
 [ext_resource path="res://Levels/sd.gd" type="Script" id=25]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 2 ) ],
@@ -144,7 +143,6 @@ flip_h = true
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Node2D"]
 position = Vector2( 186.025, 141.091 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Node2D"]
