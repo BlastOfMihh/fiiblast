@@ -33,12 +33,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "run",
+"name": "fall",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "fall",
+"name": "run",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ],
@@ -124,7 +124,6 @@ script = ExtResource( 1 )
 script = ExtResource( 7 )
 
 [node name="in_range" type="Area2D" parent="."]
-visible = false
 modulate = Color( 0.364706, 0.364706, 0.364706, 1 )
 self_modulate = Color( 0.717647, 0.133333, 0.678431, 1 )
 collision_layer = 0
@@ -133,7 +132,6 @@ collision_layer = 0
 shape = SubResource( 1 )
 
 [node name="player_detect" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_detect"]

@@ -342,11 +342,11 @@ speed = 400
 [node name="AnimatedSprite" type="AnimatedSprite" parent="muigigi"]
 position = Vector2( -212.136, -272.176 )
 frames = SubResource( 2 )
+frame = 3
 playing = true
 flip_h = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="muigigi"]
 position = Vector2( -75.72, -377.635 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
