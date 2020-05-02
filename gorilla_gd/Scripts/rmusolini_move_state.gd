@@ -1,5 +1,5 @@
 extends StateMachine
-#salut
+
 func _ready():
 	add_state("idle")
 	state=states.idle
@@ -17,10 +17,10 @@ func state_logic(delta): #handle the logic i guess
 		parent.apply_movement(delta)
 		if parent.velocity.x>0:
 			parent.anim.flip_h=1
-#			parent.rocket_position.position.x=-abs(parent.rocket_position.position.x)
+			parent.rocket_position.position.x=-abs(parent.rocket_position.position.x)
 		elif parent.velocity.x<0:
 			parent.anim.flip_h=0
-#			parent.rocket_position.position.x=+abs(parent.rocket_position.position.x)
+			parent.rocket_position.position.x=+abs(parent.rocket_position.position.x)
 		
 	parent.get_node("move_text").text=states.keys()[state]
 

@@ -11,7 +11,10 @@ func apply_chase():
 	self.rotation=PI-atan2(it.x,it.y) + PI/2#+ deg2rad(12.5)
 	velocity+=it*speed
 
+func apply_movement():
+	velocity=move_and_slide(velocity,Vector2.UP)
 
 func _physics_process(delta):
-	apply_chase()
-	velocity=move_and_slide(velocity,Vector2.UP)
+	if !Globals.map_freeze:
+		apply_movement()
+		apply_chase()
