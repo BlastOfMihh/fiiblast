@@ -8,7 +8,7 @@ var it:=Vector2.ZERO
 
 func apply_chase():
 	it=(Globals.plr.global_position - self.global_position).normalized()
-	#self.rotation=atan2()
+	self.rotation=PI-atan2(it.x,it.y) + PI/2#+ deg2rad(12.5)
 	velocity+=it*speed
 
 
