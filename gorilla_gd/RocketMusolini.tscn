@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/rmusolini_move_state.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/RocketMusolini.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/rocket_musolini/sprite_1.png" type="Texture" id=5]
 [ext_resource path="res://Assets/rocket_musolini/sprite_2.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/rmusolini_action_state.gd" type="Script" id=7]
+[ext_resource path="res://coolddown_timer.gd" type="Script" id=8]
 [ext_resource path="res://Killer.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -36,7 +37,7 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ],
-"loop": true,
+"loop": false,
 "name": "attack",
 "speed": 5.0
 }, {
@@ -187,8 +188,10 @@ one_shot = true
 [node name="coolddown_timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
+script = ExtResource( 8 )
 
 [node name="rocket_position" type="Position2D" parent="."]
 position = Vector2( -23, -4 )
 [connection signal="body_exited" from="in_range" to="." method="_on_range_body_exited"]
 [connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]
+[connection signal="timeout" from="coolddown_timer" to="." method="_on_coolddown_timer_timeout"]

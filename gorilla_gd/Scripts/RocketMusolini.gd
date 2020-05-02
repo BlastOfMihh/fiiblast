@@ -21,18 +21,19 @@ onready var rocket_position=$rocket_position
 
 const SLOPE_STOP:=64
 var gravity:=Globals.gravity
-var speed=120
-var max_jump=-130
+var speed:=120
+var max_jump:=-130
 var max_jump_count:=1
 var jump_count:=0
 
 var plr_in_range:=false
 var on_ground:=false
 var on_wall:=0
+var can_shoot:=true
+var anim_finished:=false
 
 
 func apply_movement(delta):
-	
 	on_ground=is_on_floor()
 	if on_ground:
 		jump_count=0
@@ -50,11 +51,19 @@ func jump(delta):
 func move(dir, delta):
 	velocity.x=speed*dir
 
+func handle_rocket_spawn():
+	pass
+
 func spawn_rocket():
-	var rocket_instance=rocket_preload.instance()
-	rocket_instance.position=self.rocket_position.postion
-	get_parent().add_child(rocket_instance)
-	
+	if can_shoot:
+		var rocket_instance=rocket_preload.instance()
+		rocket_instance.position=self.rocket_position.global_position
+		get_parent().add_child(rocket_instance)
+		cooldown_timer.start()
+		can_shoot=false
+func _on_coolddown_timer_timeout():
+	can_shoot=true
+
 #signals
 func _on_player_detect_body_entered(body):
 	if !Globals.map_freeze:
@@ -69,4 +78,7 @@ func _on_range_body_exited(body):
 			plr_in_range=false
 			$player_detect.monitoring=true
 			$in_range.monitoring=false
+
+
+
 

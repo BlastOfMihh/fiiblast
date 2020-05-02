@@ -12,7 +12,7 @@ func _ready():
 func state_logic(delta): #handle the logic i guess
 	
 	parent.get_node("action_text").text=states.keys()[state]
-	if true or !Globals.map_freeze:
+	if !Globals.map_freeze:
 		if state==states.chase:
 			var offset=10
 			var dir=0
@@ -27,6 +27,9 @@ func state_logic(delta): #handle the logic i guess
 			if parent.on_wall:
 				parent.jump(delta)
 			parent.move(dir,delta)
+		if state==states.attack:
+			parent.spawn_rocket()
+		
 
 # warning-ignore:unused_argument
 func get_transition(delta): #determining transitions
@@ -38,11 +41,18 @@ func get_transition(delta): #determining transitions
 			states.chase:
 				if !parent.plr_in_range:
 					return states.none
+				if parent.can_shoot:
+					return states.attack
+			states.attack:
+				if parent.anim_finished:
+					return states.none
 	return null
 	
 # warning-ignore:unused_argument
 func enter_state(new_state, old_state):
-	pass
+	match new_state:
+		states.attack:
+			parent.anim.play("attack")
 
 # warning-ignore:unused_argument
 func exit_state(old_state, new_state):

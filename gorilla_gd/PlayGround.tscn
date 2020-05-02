@@ -145,7 +145,7 @@ position = Vector2( 0, 8 )
 shape = SubResource( 1 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="ground"]
-position = Vector2( -345.473, 82.1185 )
+position = Vector2( -975.768, 75.2133 )
 rotation = -3.14159
 scale = Vector2( 0.118141, -1.05947 )
 collision_layer = 2
@@ -169,30 +169,36 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="musolini2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 363.324, 37.5271 )
+[node name="RcoketMusolini" parent="." instance=ExtResource( 19 )]
+position = Vector2( -1385.86, 70.9183 )
+detect_radius = 1000
+in_range_radius = 1000
+
+[node name="Player" parent="." instance=ExtResource( 8 )]
+position = Vector2( -751.14, 65.1135 )
+
+[node name="muigigi" type="Node2D" parent="."]
+
+[node name="musolini2" parent="muigigi" instance=ExtResource( 7 )]
+position = Vector2( -1543.06, 57.0342 )
 detect_radius = 300
 in_range_radius = 300
 
-[node name="Player" parent="." instance=ExtResource( 8 )]
-position = Vector2( -132.029, 65.1251 )
-
-[node name="MotionRocket" parent="." instance=ExtResource( 18 )]
+[node name="MotionRocket" parent="muigigi" instance=ExtResource( 18 )]
 position = Vector2( 41.18, 51.9117 )
 
-[node name="rocket" parent="." instance=ExtResource( 9 )]
+[node name="rocket" parent="muigigi" instance=ExtResource( 9 )]
 position = Vector2( 256.135, 6.66692 )
 speed = 400
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="muigigi"]
 position = Vector2( -212.136, -272.176 )
 frames = SubResource( 2 )
-frame = 3
 playing = true
 flip_h = true
 
-[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="muigigi"]
 position = Vector2( -75.72, -377.635 )
 frames = SubResource( 3 )
-frame = 2
+frame = 1
 playing = true
