@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 const SLOPE_STOP:=64
 
+export var wall_slide_on:=false
+
+
 var speed=200
 var max_jump=-420
 var min_jump=-150

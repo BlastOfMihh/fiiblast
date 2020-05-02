@@ -59,14 +59,14 @@ func get_transition(delta): #determining transitions
 				return states.idle
 			if parent.velocity.y>0:
 				return states.fall
-			if parent.on_wall and 0:
+			if parent.on_wall and parent.wall_slide_on:
 				return states.wall_slide
 		states.fall:
 			if parent.on_ground:
 				return states.idle
 			if parent.velocity.y<=0:
 				return states.jump
-			if parent.on_wall and 0:
+			if parent.on_wall and parent.wall_slide_on:
 				return states.wall_slide
 #	print(state)
 	return null

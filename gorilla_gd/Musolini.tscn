@@ -1,14 +1,15 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Scripts/enemy_move_state.gd" type="Script" id=1]
-[ext_resource path="res://Scripts/enemy.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/musolini_move_state.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Musolini.gd" type="Script" id=2]
 [ext_resource path="res://Assets/musolini/run/sprite_1.png" type="Texture" id=3]
 [ext_resource path="res://Assets/musolini/idle/sprite_0.png" type="Texture" id=4]
 [ext_resource path="res://Assets/musolini/run/sprite_0.png" type="Texture" id=5]
 [ext_resource path="res://Assets/musolini/idle/sprite_1.png" type="Texture" id=6]
-[ext_resource path="res://Scripts/enemy_action_state.gd" type="Script" id=7]
+[ext_resource path="res://Scripts/musolini_action_state.gd" type="Script" id=7]
 [ext_resource path="res://Assets/musolini/jump/sprite_0.png" type="Texture" id=8]
 [ext_resource path="res://Assets/musolini/fall/sprite_0.png" type="Texture" id=9]
+[ext_resource path="res://Killer.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 91.3679
@@ -26,6 +27,11 @@ animations = [ {
 "name": "idle",
 "speed": 2.0
 }, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "jump",
@@ -34,11 +40,6 @@ animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "run",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "fall",
 "speed": 5.0
 } ]
 
@@ -103,7 +104,7 @@ tracks/3/keys = {
 radius = 15.6781
 height = 14.7184
 
-[node name="musolini2" type="KinematicBody2D"]
+[node name="Musolini" type="KinematicBody2D"]
 position = Vector2( 0.552078, 0.736103 )
 collision_layer = 6
 collision_mask = 3
@@ -189,10 +190,9 @@ __meta__ = {
 "_editor_description_": "yep"
 }
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Killer" parent="." instance=ExtResource( 10 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killer"]
 shape = SubResource( 7 )
 [connection signal="body_exited" from="in_range" to="." method="_on_range_body_exited"]
 [connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
