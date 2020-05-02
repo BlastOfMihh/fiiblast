@@ -41,10 +41,10 @@ func get_transition(delta): #determining transitions
 			states.chase:
 				if !parent.plr_in_range:
 					return states.none
-				if parent.can_shoot:
+				if parent.can_shoot and ["idle","run"].has(parent.move_state.states.keys()[parent.move_state.state]):
 					return states.attack
 			states.attack:
-				if parent.anim_finished:
+				if !parent.can_shoot:
 					return states.none
 	return null
 	

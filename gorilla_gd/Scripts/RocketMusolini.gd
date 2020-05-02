@@ -12,8 +12,8 @@ var velocity:=Vector2()
 onready var rocket_preload=preload("res://MotionRocket.tscn")
 
 onready var plr:=get_tree().get_root().get_node(get_tree().current_scene.name).get_node("Player")
-onready var move_state=$enemy_move_state
-onready var action_state=$enemy_action_state
+onready var move_state=$rmusolini_move_state
+onready var action_state=$rmusolini_action_state
 onready var anim=$sprite
 onready var attack_timer=$attack_timer
 onready var cooldown_timer=$coolddown_timer
@@ -30,8 +30,14 @@ var plr_in_range:=false
 var on_ground:=false
 var on_wall:=0
 var can_shoot:=true
-var anim_finished:=false
+var rocket_anim_playing:=true
 
+func _physics_process(delta):
+	if Globals.map_freeze:
+		cooldown_timer.paused=true
+	else:
+		cooldown_timer.paused=false
+		
 
 func apply_movement(delta):
 	on_ground=is_on_floor()
@@ -60,7 +66,14 @@ func spawn_rocket():
 		rocket_instance.position=self.rocket_position.global_position
 		get_parent().add_child(rocket_instance)
 		cooldown_timer.start()
+		attack_timer.start()
 		can_shoot=false
+		rocket_anim_playing=true
+
+
+func _on_attack_timer_timeout():
+	rocket_anim_playing=false
+
 func _on_coolddown_timer_timeout():
 	can_shoot=true
 
@@ -78,6 +91,8 @@ func _on_range_body_exited(body):
 			plr_in_range=false
 			$player_detect.monitoring=true
 			$in_range.monitoring=false
+
+
 
 
 

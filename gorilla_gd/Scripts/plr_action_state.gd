@@ -10,6 +10,15 @@ func _ready():
 	add_state("hold")
 
 func state_logic(delta): #handle the logic i guess
+	
+	if (Globals.map_freeze and parent.freeze_timer.time_left==0) or(Input.is_action_just_pressed("freeze_map") and parent.freeze_timer.time_left!=0):
+		Globals.freeze_time()
+		if Globals.map_freeze:
+			parent.freeze_timer.paused=false
+		else:
+			parent.freeze_timer.paused=true
+		
+	
 	parent.get_node("RichTextLabel2").text=states.keys()[state]
 	if state==states.hold:
 		parent.grabbed_body.position=parent.position+grab_offset
@@ -41,6 +50,7 @@ func enter_state(new_state, old_state):
 			grab_offset.y=-(parent.get_node("collision_shape").shape.extents.y+grab_collison_shape.shape.extents.y+1)
 			
 			grab_collison_shape.position=grab_offset
+			grab_collison_shape.rotation=parent.available_grab_body.rotation
 			grab_collison_shape.name="grab_shape"
 			parent.grabbed_body.get_node("collision_shape").disabled=true
 			parent.get_node("grab_range").monitoring=false

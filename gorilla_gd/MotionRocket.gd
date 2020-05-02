@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
-
+export var explosive:=false
 export var speed:=2
+
 
 var velocity:=Vector2.ZERO
 var it:=Vector2.ZERO

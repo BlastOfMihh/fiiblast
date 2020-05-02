@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Untitled.png-c8450cb5ff9fb67ff64ff482c68e54e7.stex"
+path="res://.import/green_grad.png-1ebd562d138c18eb3ca2a18b424b17f8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/time_freeze/Untitled.png"
-dest_files=[ "res://.import/Untitled.png-c8450cb5ff9fb67ff64ff482c68e54e7.stex" ]
+source_file="res://Assets/time_freeze/green_grad.png"
+dest_files=[ "res://.import/green_grad.png-1ebd562d138c18eb3ca2a18b424b17f8.stex" ]
 
 [params]
 

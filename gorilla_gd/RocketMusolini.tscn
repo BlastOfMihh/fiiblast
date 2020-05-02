@@ -17,7 +17,7 @@ radius = 91.3679
 radius = 60.0
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 10.3659, 19.6296 )
+extents = Vector2( 8.64643, 19.4852 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -28,22 +28,22 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "fall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
 "name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ],
-"loop": false,
-"name": "attack",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "attack",
 "speed": 5.0
 } ]
 
@@ -105,7 +105,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=7]
-radius = 15.6781
+radius = 10.5874
 height = 14.7184
 
 [node name="RocketMusolini" type="KinematicBody2D"]
@@ -142,6 +142,8 @@ self_modulate = Color( 1, 0.909804, 0, 1 )
 shape = SubResource( 2 )
 
 [node name="collision_shape" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 4, 3 )
 shape = SubResource( 3 )
 
 [node name="move_text" type="RichTextLabel" parent="."]
@@ -177,9 +179,12 @@ __meta__ = {
 }
 
 [node name="Killer" parent="." instance=ExtResource( 10 )]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killer"]
+position = Vector2( 4, 2 )
 shape = SubResource( 7 )
+disabled = true
 
 [node name="attack_timer" type="Timer" parent="."]
 wait_time = 0.25
@@ -194,4 +199,5 @@ script = ExtResource( 8 )
 position = Vector2( -23, -4 )
 [connection signal="body_exited" from="in_range" to="." method="_on_range_body_exited"]
 [connection signal="body_entered" from="player_detect" to="." method="_on_player_detect_body_entered"]
+[connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="coolddown_timer" to="." method="_on_coolddown_timer_timeout"]

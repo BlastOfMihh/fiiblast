@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/gorilla/ATTACK/sprite_4.png" type="Texture" id=5]
 [ext_resource path="res://Assets/gorilla/ATTACK/sprite_2.png" type="Texture" id=6]
 [ext_resource path="res://Levels/sprite_0.png" type="Texture" id=7]
-[ext_resource path="res://Assets/time_freeze/Untitled.png" type="Texture" id=8]
+[ext_resource path="res://Assets/time_freeze/green_grad.png" type="Texture" id=8]
 [ext_resource path="res://Assets/rocket_musolini/sprite_0.png" type="Texture" id=9]
 [ext_resource path="res://Assets/rocket_musolini/sprite_2.png" type="Texture" id=10]
 [ext_resource path="res://Assets/sprite_0.png" type="Texture" id=11]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Assets/ICONS/sprite_1.png" type="Texture" id=23]
 [ext_resource path="res://Assets/ICONS/sprite_0.png" type="Texture" id=24]
 [ext_resource path="res://Levels/sd.gd" type="Script" id=25]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

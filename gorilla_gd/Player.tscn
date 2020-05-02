@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/gorilla/RUN/sprite_1.png" type="Texture" id=2]
@@ -20,10 +20,11 @@
 [ext_resource path="res://Assets/gorilla/ATTACK/sprite_0.png" type="Texture" id=18]
 [ext_resource path="res://Assets/gorilla/ATTACK/sprite_1.png" type="Texture" id=19]
 [ext_resource path="res://Scripts/plr_action_state.gd" type="Script" id=20]
-[ext_resource path="res://Assets/time_freeze/Untitled.png" type="Texture" id=21]
+[ext_resource path="res://Assets/time_freeze/green_grad.png" type="Texture" id=21]
 [ext_resource path="res://Assets/gorilla/WALL_SLIDE/sprite_1.png" type="Texture" id=22]
 [ext_resource path="res://Assets/gorilla/WALL_SLIDE/sprite_0.png" type="Texture" id=23]
 [ext_resource path="res://Assets/gorilla/WALL_SLIDE/sprite_2.png" type="Texture" id=24]
+[ext_resource path="res://bar.gd" type="Script" id=25]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 14 )
@@ -38,30 +39,30 @@ animations = [ {
 "name": "idle",
 "speed": 3.0
 }, {
+"frames": [ ExtResource( 9 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "dance",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 11 ), ExtResource( 10 ) ],
 "loop": false,
 "name": "jump",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 12 ), ExtResource( 22 ) ],
-"loop": false,
-"name": "wall_slide",
-"speed": 10.0
+"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "run",
+"speed": 9.0
 }, {
 "frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 13 ) ],
 "loop": false,
 "name": "attack",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "dance",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "run",
-"speed": 9.0
+"frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 12 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "wall_slide",
+"speed": 10.0
 } ]
 
 [sub_resource type="CanvasItemMaterial" id=4]
@@ -119,11 +120,11 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="plr_move_state" type="Node" parent="."]
-script = ExtResource( 4 )
-
 [node name="plr_action_state" type="Node" parent="."]
 script = ExtResource( 20 )
+
+[node name="plr_move_state" type="Node" parent="."]
+script = ExtResource( 4 )
 
 [node name="collision_shape" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -217,6 +218,7 @@ __meta__ = {
 }
 
 [node name="camera" type="Camera2D" parent="."]
+visible = false
 position = Vector2( 0, -20 )
 current = true
 smoothing_enabled = true
@@ -235,6 +237,17 @@ root_node = NodePath("../green_grad")
 method_call_mode = 1
 anims/def = SubResource( 5 )
 anims/turn_tf = SubResource( 6 )
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+[node name="bar" type="Sprite" parent="ui"]
+position = Vector2( 104.058, 42.0248 )
+scale = Vector2( 0.0779337, 0.00881408 )
+texture = ExtResource( 21 )
+script = ExtResource( 25 )
+
+[node name="freeze_timer" type="Timer" parent="."]
+one_shot = true
 [connection signal="body_entered" from="grab_range" to="." method="_on_grab_range_body_entered"]
 [connection signal="body_exited" from="grab_range" to="." method="_on_grab_range_body_exited"]
 [connection signal="animation_finished" from="body/AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
