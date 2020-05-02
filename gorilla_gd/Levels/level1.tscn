@@ -35,13 +35,12 @@ position = Vector2( 162.474, 217.311 )
 position = Vector2( -146.943, 242.812 )
 
 [node name="Coin" parent="." instance=ExtResource( 5 )]
-position = Vector2( 499.968, 108.031 )
-next = "res://Levels/Finish.tscn"
+position = Vector2( 500.292, 108.031 )
+next = "res://Levels/level2.tscn"
 
 [node name="TileMap" type="TileMap" parent="." groups=[
 "no_grab",
 ]]
-visible = false
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 7
@@ -59,7 +58,6 @@ __meta__ = {
 }
 
 [node name="BackgroundMare" type="TileMap" parent="."]
-visible = false
 scale = Vector2( 20, 20 )
 z_index = -1
 tile_set = SubResource( 1 )
