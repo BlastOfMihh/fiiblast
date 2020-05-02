@@ -63,7 +63,7 @@ tile_data = PoolIntArray( -65539, 1, 0, -65538, 1, 0, -65537, 1, 0, -131072, 1, 
 position = Vector2( 612.748, 92.4372 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killer2"]
-position = Vector2( -278.637, 25.1401 )
+position = Vector2( -280.206, 25.1401 )
 shape = SubResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Killer2"]
@@ -76,6 +76,7 @@ position = Vector2( -137.357, -125.685 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 73.4764, -35.3475 )
+freeze_duration = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color( 0.521569, 0.905882, 0.796078, 1 )
@@ -87,6 +88,7 @@ tile_data = PoolIntArray( -2293642, -1610612728, 0, -2293641, 1610612744, 0, -22
 
 [node name="Coin" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2331.73, -371.982 )
+next = "res://Levels/level5.tscn"
 
 [node name="MotionRocket5" parent="." instance=ExtResource( 6 )]
 position = Vector2( -146.726, -39.2476 )
