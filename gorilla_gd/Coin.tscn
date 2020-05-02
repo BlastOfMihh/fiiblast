@@ -26,6 +26,5 @@ shape = SubResource( 1 )
 position = Vector2( -0.5411, 4.73466 )
 scale = Vector2( 0.25, 0.27 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 [connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]
