@@ -43,10 +43,10 @@
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3326.86, 81.2024 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 470.601, 223.64 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 38.129, 49.9295 )
 
 [node name="level4" type="Node2D"]
@@ -92,7 +92,7 @@ polygon = PoolVector2Array( -613.747, -95.8066, -592.695, -472.648, -647.432, -4
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ground/Killer2"]
 position = Vector2( 459.088, -216.531 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Coin" parent="ground" instance=ExtResource( 6 )]
 position = Vector2( 1602.1, -648.67 )
@@ -134,12 +134,12 @@ texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 position = Vector2( 38.3531, 1.09583 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 disabled = true
 
 [node name="Area2D" type="Area2D" parent="KinematicBody2D"]
 visible = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="KinematicBody2D/Area2D"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 [connection signal="area_exited" from="KinematicBody2D/Area2D" to="KinematicBody2D" method="_on_Area2D_area_exited"]
