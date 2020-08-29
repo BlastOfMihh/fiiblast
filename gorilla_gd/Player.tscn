@@ -40,30 +40,30 @@ animations = [ {
 "name": "idle",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "jump",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "dance",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 12 ), ExtResource( 22 ) ],
 "loop": false,
 "name": "wall_slide",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 10 ) ],
 "loop": false,
-"name": "attack",
+"name": "jump",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "run",
 "speed": 9.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "dance",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "attack",
+"speed": 12.0
 } ]
 
 [sub_resource type="CanvasItemMaterial" id=4]
@@ -222,7 +222,6 @@ anims/turn_tf = SubResource( 6 )
 [node name="ui" type="CanvasLayer" parent="."]
 
 [node name="esc" parent="ui" instance=ExtResource( 26 )]
-visible = false
 position = Vector2( 327, 95 )
 
 [node name="bar" type="Sprite" parent="ui"]
