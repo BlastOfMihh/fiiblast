@@ -25,7 +25,7 @@ func state_logic(delta): #handle the logic i guess
 				i.set_collision_mask_bit(3,!i.get_collision_mask_bit(3))
 		prev_d=now_d
 
-	if [states.run,states.idle, states.jump].has(state): 
+	if [states.run,states.idle, states.jump, states.fall].has(state): 
 		parent.handle_jump_input()
 	elif states.wall_slide==state:
 		parent.handle_wall_slide_input()
