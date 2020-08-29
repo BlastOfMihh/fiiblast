@@ -21,14 +21,35 @@ z_index = -1
 texture = ExtResource( 3 )
 
 [node name="sprite_0" type="Sprite" parent="."]
+visible = false
 position = Vector2( 325.162, 107.29 )
 texture = ExtResource( 4 )
 
-[node name="quit" type="Button" parent="."]
-margin_left = 262.028
-margin_top = 225.65
-margin_right = 387.028
-margin_bottom = 285.65
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 60.0
+margin_top = 40.0
+margin_right = 580.0
+margin_bottom = 320.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="paly" type="Button" parent="VBoxContainer"]
+margin_right = 520.0
+margin_bottom = 20.0
+action_mode = 0
+icon = ExtResource( 2 )
+flat = true
+expand_icon = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 520.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 size_flags_stretch_ratio = 30.0
@@ -39,30 +60,5 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="paly" type="Button" parent="."]
-margin_left = 263.99
-margin_top = 169.997
-margin_right = 388.99
-margin_bottom = 227.997
-action_mode = 0
-icon = ExtResource( 2 )
-flat = true
-expand_icon = true
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 7.59143
-margin_top = 341.207
-margin_right = 383.591
-margin_bottom = 375.207
-custom_colors/font_color_shadow = Color( 0.137255, 0.0392157, 1, 1 )
-text = "GAME Created by Andrei Turcu and Turcu Mihnea "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="pressed" from="quit" to="quit" method="_on_quit_pressed"]
-[connection signal="pressed" from="paly" to="paly" method="_on_paly_pressed"]
+[connection signal="pressed" from="VBoxContainer/paly" to="VBoxContainer/paly" method="_on_paly_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="VBoxContainer/quit" method="_on_quit_pressed"]
