@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Killer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Backgrounds/paralx.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://RocketMusolini.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/noul_map.tres" type="TileSet" id=10]
 [ext_resource path="res://Assets/Backgrounds/paralax/sprite_08.png" type="Texture" id=11]
+[ext_resource path="res://Assets/pamant.tscn" type="PackedScene" id=12]
 
 [sub_resource type="TileSet" id=1]
 0/name = "background_glacial_mountains.png 0"
@@ -125,7 +126,7 @@ position = Vector2( 489.456, -26.5037 )
 position = Vector2( 279.014, -26.5037 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 607.059, -381.239 )
+position = Vector2( -40.2096, -29.1369 )
 collision_mask = 7
 freeze_duration = 67
 
@@ -161,4 +162,40 @@ position = Vector2( 956.523, -519.147 )
 scale = Vector2( 12.15, 5.9 )
 z_index = -3823
 texture = ExtResource( 11 )
+
+[node name="pamant" parent="." instance=ExtResource( 12 )]
+position = Vector2( 87.8362, 9.509 )
+
+[node name="pamant" parent="pamant" instance=ExtResource( 12 )]
+position = Vector2( -3.17831, 244.736 )
+
+[node name="pamant" parent="pamant/pamant" instance=ExtResource( 12 )]
+position = Vector2( 383.526, -243.676 )
+
+[node name="pamant2" parent="pamant/pamant" instance=ExtResource( 12 )]
+position = Vector2( 741.624, -244.736 )
+
+[node name="pamant3" parent="pamant/pamant" instance=ExtResource( 12 )]
+position = Vector2( 1105.02, -245.795 )
+
+[node name="pamant4" parent="pamant/pamant" instance=ExtResource( 12 )]
+position = Vector2( 1453.58, -244.736 )
+
+[node name="pamant5" parent="pamant/pamant" instance=ExtResource( 12 )]
+position = Vector2( -318.898, 118.66 )
+
+[node name="pamant6" parent="pamant/pamant" instance=ExtResource( 12 )]
+position = Vector2( -626.143, 115.481 )
+
+[node name="pamant7" parent="pamant/pamant" instance=ExtResource( 12 )]
+position = Vector2( -987.419, 117.6 )
+
+[node name="pamant" parent="pamant/pamant/pamant7" instance=ExtResource( 12 )]
+position = Vector2( -326.413, -212.077 )
+
+[node name="pamant" parent="pamant/pamant/pamant7/pamant" instance=ExtResource( 12 )]
+position = Vector2( -49.3892, 226.923 )
+
+[node name="pamant" parent="pamant/pamant/pamant7/pamant/pamant" instance=ExtResource( 12 )]
+position = Vector2( 49.389, -439.162 )
 [connection signal="area_exited" from="KinematicBody2D/Area2D" to="KinematicBody2D" method="_on_Area2D_area_exited"]

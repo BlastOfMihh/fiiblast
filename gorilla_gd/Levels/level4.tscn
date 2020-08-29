@@ -98,7 +98,37 @@ __meta__ = {
 position = Vector2( -862.458, 357.616 )
 
 [node name="pamant" parent="pamant" instance=ExtResource( 7 )]
-position = Vector2( -367.634, -242.914 )
+position = Vector2( -387.838, -276.588 )
 
 [node name="pamant" parent="pamant/pamant" instance=ExtResource( 7 )]
 position = Vector2( 20.2406, 253.764 )
+
+[node name="pamant2" parent="pamant/pamant" instance=ExtResource( 7 )]
+position = Vector2( 724.611, 272.535 )
+
+[node name="pamant" parent="pamant/pamant/pamant2" instance=ExtResource( 7 )]
+position = Vector2( 352.453, 4.48987 )
+
+[node name="pamant2" parent="pamant/pamant/pamant2" instance=ExtResource( 7 )]
+position = Vector2( 675.722, -2.24487 )
+
+[node name="pamant" parent="pamant/pamant/pamant2/pamant2" instance=ExtResource( 7 )]
+position = Vector2( 354.698, -6.73483 )
+
+[node name="pamant2" parent="pamant/pamant/pamant2/pamant2" instance=ExtResource( 7 )]
+position = Vector2( 709.396, -4.4899 )
+
+[node name="pamant3" parent="pamant/pamant/pamant2/pamant2" instance=ExtResource( 7 )]
+position = Vector2( 1075.32, -2.24496 )
+
+[node name="pamant4" parent="pamant/pamant/pamant2/pamant2" instance=ExtResource( 7 )]
+position = Vector2( 1454.71, -8.9798 )
+
+[node name="pamant5" parent="pamant/pamant/pamant2/pamant2" instance=ExtResource( 7 )]
+position = Vector2( 1800.43, -6.73486 )
+
+[node name="pamant6" parent="pamant/pamant/pamant2/pamant2" instance=ExtResource( 7 )]
+position = Vector2( 2134.92, -6.73486 )
+
+[node name="pamant7" parent="pamant/pamant/pamant2/pamant2" instance=ExtResource( 7 )]
+position = Vector2( 2512.07, -6.10352e-05 )
