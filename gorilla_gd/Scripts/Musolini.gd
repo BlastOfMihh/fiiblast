@@ -13,7 +13,7 @@ var gravity:=Globals.gravity
 var velocity:=Vector2()
 
 var speed=120
-var max_jump=-130
+var max_jump=-150
 var max_jump_count:=1
 var jump_count:=0
 

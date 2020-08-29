@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/gorilla/RUN/sprite_1.png" type="Texture" id=2]
@@ -26,6 +26,8 @@
 [ext_resource path="res://Assets/gorilla/WALL_SLIDE/sprite_2.png" type="Texture" id=24]
 [ext_resource path="res://bar.gd" type="Script" id=25]
 [ext_resource path="res://esc.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Assets/bara/sprite_1.png" type="Texture" id=27]
+[ext_resource path="res://Assets/bara/sprite_0.png" type="Texture" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 14 )
@@ -133,7 +135,8 @@ shape = SubResource( 1 )
 [node name="grab_range" type="Area2D" parent="."]
 modulate = Color( 0.0352941, 0.313726, 0.156863, 1 )
 self_modulate = Color( 0.360784, 1, 0, 1 )
-collision_mask = 4
+collision_layer = 0
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grab_range"]
 position = Vector2( 0, -4 )
@@ -226,10 +229,16 @@ position = Vector2( 327, 95 )
 
 [node name="bar" type="Sprite" parent="ui"]
 visible = false
-position = Vector2( 104.058, 42.0248 )
-scale = Vector2( 0.0779337, 0.00881408 )
-texture = ExtResource( 21 )
+position = Vector2( 23.8465, 19.938 )
+scale = Vector2( 135.577, 3.76529 )
+texture = ExtResource( 28 )
+centered = false
 script = ExtResource( 25 )
+
+[node name="sprite_1" type="Sprite" parent="ui/bar"]
+position = Vector2( 0.500991, 2.70204 )
+scale = Vector2( 0.0334583, 0.48036 )
+texture = ExtResource( 27 )
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="ui"]
 margin_left = 14.0

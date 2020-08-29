@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Backgrounds/background_glacial_mountains.png" type="Texture" id=2]
 [ext_resource path="res://PhysicsMover.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/external-content.duckduckgo.com.png" type="Texture" id=4]
 [ext_resource path="res://Assets/icon.png" type="Texture" id=5]
+[ext_resource path="res://Musolini.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://RocketMusolini.tscn" type="PackedScene" id=19]
 
@@ -284,7 +285,10 @@ detect_radius = 1000
 in_range_radius = 1000
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
-position = Vector2( 569.652, -27.091 )
+position = Vector2( 393.987, 71.1244 )
+
+[node name="Musolini" parent="." instance=ExtResource( 6 )]
+position = Vector2( 649.113, 69.0491 )
 
 [node name="PhysicsMover" parent="." instance=ExtResource( 3 )]
 position = Vector2( 567.457, -2.41205 )

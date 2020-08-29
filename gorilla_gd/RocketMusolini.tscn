@@ -31,9 +31,9 @@ animations = [ {
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "fall",
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "attack",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -41,9 +41,9 @@ animations = [ {
 "name": "run",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ) ],
-"loop": false,
-"name": "attack",
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "fall",
 "speed": 5.0
 } ]
 
@@ -110,7 +110,7 @@ height = 14.7184
 
 [node name="RocketMusolini" type="KinematicBody2D"]
 position = Vector2( 0.552078, 0.896086 )
-collision_layer = 6
+collision_layer = 22
 collision_mask = 3
 script = ExtResource( 2 )
 __meta__ = {

@@ -22,7 +22,7 @@ radius = 7.58479
 height = 46.6227
 
 [node name="MotionRocket" type="KinematicBody2D"]
-collision_layer = 6
+collision_layer = 22
 collision_mask = 7
 script = ExtResource( 5 )
 
@@ -33,6 +33,7 @@ shape = SubResource( 1 )
 self_modulate = Color( 0.443137, 1, 0.243137, 1 )
 position = Vector2( 5, 0 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="Killer" parent="." instance=ExtResource( 4 )]
