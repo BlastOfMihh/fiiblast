@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/ICONS/sprite_0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/ICONS/sprite_1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/sprite_0.png" type="Texture" id=3]
-[ext_resource path="res://Levels/sprite_0.png" type="Texture" id=4]
+[ext_resource path="res://Assets/ICONS/logo.png" type="Texture" id=4]
 [ext_resource path="res://Levels/Button.gd" type="Script" id=5]
 [ext_resource path="res://Levels/quit.gd" type="Script" id=6]
 
@@ -15,27 +15,25 @@ __meta__ = {
 }
 
 [node name="sprite_1" type="Sprite" parent="."]
-position = Vector2( 324.461, 302.046 )
-scale = Vector2( 2.53868, 2.70567 )
+position = Vector2( 319.125, 351.384 )
+scale = Vector2( 2.49699, 2.73956 )
 z_index = -1
 texture = ExtResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="sprite_0" type="Sprite" parent="."]
-position = Vector2( 325.162, 106.29 )
+position = Vector2( 325.162, 107.29 )
 texture = ExtResource( 4 )
 
 [node name="quit" type="Button" parent="."]
-margin_left = 255.0
-margin_top = 232.0
-margin_right = 380.0
-margin_bottom = 292.0
+margin_left = 262.028
+margin_top = 225.65
+margin_right = 387.028
+margin_bottom = 285.65
 size_flags_horizontal = 3
 size_flags_vertical = 2
 size_flags_stretch_ratio = 30.0
 icon = ExtResource( 1 )
+flat = true
 expand_icon = true
 script = ExtResource( 6 )
 __meta__ = {
@@ -43,12 +41,13 @@ __meta__ = {
 }
 
 [node name="paly" type="Button" parent="."]
-margin_left = 255.0
-margin_top = 167.0
-margin_right = 380.0
-margin_bottom = 225.0
+margin_left = 263.99
+margin_top = 169.997
+margin_right = 388.99
+margin_bottom = 227.997
 action_mode = 0
 icon = ExtResource( 2 )
+flat = true
 expand_icon = true
 script = ExtResource( 5 )
 __meta__ = {

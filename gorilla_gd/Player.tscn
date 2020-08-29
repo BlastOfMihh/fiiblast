@@ -39,30 +39,30 @@ animations = [ {
 "name": "idle",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "dance",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ), ExtResource( 10 ) ],
 "loop": false,
 "name": "jump",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 14 ) ],
 "loop": true,
-"name": "run",
-"speed": 9.0
+"name": "dance",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 12 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "wall_slide",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ), ExtResource( 13 ) ],
 "loop": false,
 "name": "attack",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 24 ), ExtResource( 23 ), ExtResource( 12 ), ExtResource( 22 ) ],
-"loop": false,
-"name": "wall_slide",
-"speed": 10.0
+"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "run",
+"speed": 9.0
 } ]
 
 [sub_resource type="CanvasItemMaterial" id=4]
@@ -114,17 +114,17 @@ tracks/3/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
-collision_mask = 6
+collision_mask = 14
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="plr_action_state" type="Node" parent="."]
-script = ExtResource( 20 )
-
 [node name="plr_move_state" type="Node" parent="."]
 script = ExtResource( 4 )
+
+[node name="plr_action_state" type="Node" parent="."]
+script = ExtResource( 20 )
 
 [node name="collision_shape" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -140,23 +140,23 @@ shape = SubResource( 2 )
 
 [node name="ground_rays" type="Node2D" parent="."]
 
-[node name="RayCast2D" type="RayCast2D" parent="ground_rays"]
-position = Vector2( 10, 14 )
-enabled = true
-cast_to = Vector2( 0, 7 )
-collision_mask = 2
-
-[node name="RayCast2D2" type="RayCast2D" parent="ground_rays"]
+[node name="RayCast2D1" type="RayCast2D" parent="ground_rays"]
 position = Vector2( -9, 14 )
 enabled = true
 cast_to = Vector2( 0, 7 )
-collision_mask = 2
+collision_mask = 10
 
-[node name="RayCast2D3" type="RayCast2D" parent="ground_rays"]
+[node name="RayCast2D2" type="RayCast2D" parent="ground_rays"]
 position = Vector2( 0, 14 )
 enabled = true
+cast_to = Vector2( 0, 9 )
+collision_mask = 10
+
+[node name="RayCast2D3" type="RayCast2D" parent="ground_rays"]
+position = Vector2( 10, 14 )
+enabled = true
 cast_to = Vector2( 0, 7 )
-collision_mask = 2
+collision_mask = 10
 
 [node name="wall_rays_left" type="Node2D" parent="."]
 visible = false
@@ -197,26 +197,6 @@ frames = SubResource( 3 )
 animation = "idle"
 frame = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = -17.0
-margin_top = 15.0
-margin_right = 39.0
-margin_bottom = 48.0
-text = "salut"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
-margin_left = -18.0
-margin_top = -27.0
-margin_right = 35.0
-margin_bottom = 6.0
-text = "wddw"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="camera" type="Camera2D" parent="."]
 visible = false
 position = Vector2( 0, -20 )
@@ -241,10 +221,31 @@ anims/turn_tf = SubResource( 6 )
 [node name="ui" type="CanvasLayer" parent="."]
 
 [node name="bar" type="Sprite" parent="ui"]
+visible = false
 position = Vector2( 104.058, 42.0248 )
 scale = Vector2( 0.0779337, 0.00881408 )
 texture = ExtResource( 21 )
 script = ExtResource( 25 )
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ui"]
+margin_left = 14.0
+margin_top = 16.0
+margin_right = 67.0
+margin_bottom = 49.0
+text = "wddw"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ui"]
+margin_left = 15.0
+margin_top = 58.0
+margin_right = 71.0
+margin_bottom = 91.0
+text = "salut"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="freeze_timer" type="Timer" parent="."]
 one_shot = true

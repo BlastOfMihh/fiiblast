@@ -56,8 +56,17 @@ func check_on_wall():
 func apply_gravity(delta):
 	velocity.y+=gravity*delta
 
+var snap=Vector2.ZERO
+
 func apply_movement(delta): 
-	velocity = move_and_slide(velocity,Vector2.UP,SLOPE_STOP)
+	var ms=$plr_move_state
+	var df=ms.states["jump"]==ms.state
+	df=Input.get_action_strength("move_up")!=0
+	var snap= Vector2.DOWN*8 if !df else Vector2.ZERO
+	#snap=Vector2.ZERO
+	velocity = move_and_slide_with_snap(velocity,snap,Vector2.UP) #,SLOPE_STOP)
+#	velocity = move_and_slide_with_snap(velocity,Vector2.UP, snap ,SLOPE_STOP)
+#	velocity = move_and_slide(velocity,Vector2.UP, SLOPE_STOP)
 	on_ground=check_on_ground()
 	on_wall=check_on_wall()
 

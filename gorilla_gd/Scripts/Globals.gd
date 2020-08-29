@@ -2,6 +2,7 @@ extends Node
 
 signal freeze_time()
 
+var tile_size=16
 
 var gravity:=800
 
@@ -23,4 +24,14 @@ func _physics_process(delta):
 		get_tree().reload_current_scene()
 	
 # ///
+
+func swap(ar:Array):
+	var x=ar[0]
+	var y=ar[1]
+	var aux=x
+	x=y
+	y=aux
+	
+	
+
 
