@@ -294,9 +294,6 @@ speed = 500
 
 [node name="PlatformM" parent="PhysicsMover" instance=ExtResource( 1 )]
 
-[node name="PlatformM2" parent="PhysicsMover" instance=ExtResource( 1 )]
-position = Vector2( 0, 33 )
-
 [node name="Platform4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 56.0351, -30.4691 )
 

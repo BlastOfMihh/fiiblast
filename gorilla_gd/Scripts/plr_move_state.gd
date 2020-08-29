@@ -61,13 +61,14 @@ func get_transition(delta): #determining transitions
 				return states.fall
 			if abs(parent.velocity.x)<1:
 				return states.idle
-			
 		states.wall_slide:
+			
 			if !parent.on_wall or parent.velocity.x!=0 and Input.is_action_pressed("move_up"):
 				return states.jump
 			if parent.on_ground:
 				return states.idle
 		states.jump:
+			
 			if parent.on_ground:
 				return states.idle
 			if parent.velocity.y>0 and parent.on_ground==false:
@@ -75,8 +76,12 @@ func get_transition(delta): #determining transitions
 			if parent.on_wall and parent.wall_slide_on:
 				return states.wall_slide
 		states.fall:
+			
 			if parent.on_ground:
-				return states.idle
+				if parent.velocity.x==0:
+					return states.idle
+				else :
+					return states.run
 			if parent.velocity.y<=0:
 				return states.jump
 			if parent.on_wall and parent.wall_slide_on:

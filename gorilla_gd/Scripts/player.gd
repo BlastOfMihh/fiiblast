@@ -79,7 +79,8 @@ func handle_wall_slide_input():
 	
 
 func handle_jump_input():
-	if Input.is_action_just_pressed("move_up") and on_ground:
+#	if Input.is_action_just_pressed("move_up") and on_ground:
+	if Input.get_action_strength("move_up") and on_ground:
 		velocity.y=max_jump
 	
 	if Input.is_action_just_released("move_up") and velocity.y<min_jump:
