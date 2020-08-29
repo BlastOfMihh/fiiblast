@@ -1,7 +1,7 @@
 extends Area2D
 
 
-export var next="res://Chaper2/cap1.tscn"
+export var next="res://Levels/level1.tscn"
 
 
 
