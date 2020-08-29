@@ -24,3 +24,13 @@ func _physics_process(delta):
 	
 # ///
 
+func swap(ar:Array):
+	var x=ar[0]
+	var y=ar[1]
+	var aux=x
+	x=y
+	y=aux
+	
+	
+
+

@@ -11,9 +11,20 @@ func _ready():
 	add_state("fall")
 	add_state("dance")
 
+var prev_d=false
+
 func state_logic(delta): #handle the logic i guess
 #	if state!=states.wall_slide:
 	parent.handle_move_input()
+#	if [states.run, states.idle, states.fall,states.jump].has(state): 
+	if 1:
+		var now_d=Input.is_action_pressed("move_down")
+		var ground_range=[parent]+parent.get_node("ground_rays").get_children()
+		if prev_d!=now_d:
+			for i in ground_range:
+				i.set_collision_mask_bit(3,!i.get_collision_mask_bit(3))
+		prev_d=now_d
+
 	if [states.run,states.idle, states.jump].has(state): 
 		parent.handle_jump_input()
 	elif states.wall_slide==state:
