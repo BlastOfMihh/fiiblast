@@ -2,6 +2,7 @@ extends Node
 
 signal freeze_time()
 
+var tile_size=16
 
 var gravity:=800
 

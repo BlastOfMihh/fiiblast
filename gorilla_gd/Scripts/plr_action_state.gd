@@ -19,7 +19,7 @@ func state_logic(delta): #handle the logic i guess
 			parent.freeze_timer.paused=true
 		
 	
-	parent.get_node("RichTextLabel2").text=states.keys()[state]
+	parent.get_node("ui").get_node("RichTextLabel2").text=states.keys()[state]
 	if state==states.hold:
 		parent.grabbed_body.position=parent.position+grab_offset
 	
