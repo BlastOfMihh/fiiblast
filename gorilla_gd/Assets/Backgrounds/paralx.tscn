@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/Backgrounds/paralax/sprite_07.png" type="Texture" id=8]
 
 [node name="paralx" type="Node2D"]
+z_index = 12
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -84,7 +85,7 @@ motion_mirroring = Vector2( 100, 0 )
 position = Vector2( -141.839, 590.798 )
 scale = Vector2( -1, 2.136 )
 texture = ExtResource( 8 )
-offset = Vector2( 0, -360 )
+offset = Vector2( 0, -100 )
 
 [node name="Sprite2" type="Sprite" parent="CanvasLayer/Node2D/CanvasLayer/ParallaxBackground/5"]
 position = Vector2( 0, 236.414 )
@@ -100,7 +101,7 @@ motion_mirroring = Vector2( 100, 0 )
 position = Vector2( 0, 266.06 )
 scale = Vector2( 1, 1.47511 )
 texture = ExtResource( 3 )
-offset = Vector2( 0, -360 )
+offset = Vector2( 0, -100 )
 
 [node name="7" type="ParallaxLayer" parent="CanvasLayer/Node2D/CanvasLayer/ParallaxBackground"]
 motion_scale = Vector2( 0.8, 1 )

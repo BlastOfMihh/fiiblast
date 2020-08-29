@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Killer.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Levels/tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://Assets/noul_map.tres" type="TileSet" id=2]
 [ext_resource path="res://Assets/Backgrounds/background_glacial_mountains.png" type="Texture" id=3]
 [ext_resource path="res://Coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://MotionRocket.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/pamant.tscn" type="PackedScene" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "background_glacial_mountains.png 0"
@@ -41,16 +42,6 @@
 extents = Vector2( 3326.86, 81.2024 )
 
 [node name="level4" type="Node2D"]
-
-[node name="FUNDALA2" type="TileMap" parent="."]
-modulate = Color( 0.317647, 0.168627, 0.168627, 1 )
-position = Vector2( -1.90735e-06, 378 )
-rotation = 0.349066
-scale = Vector2( 10, 40 )
-tile_set = SubResource( 1 )
-cell_size = Vector2( 17, 17 )
-format = 1
-tile_data = PoolIntArray( -196594, 1, 0, -196593, 1, 0, -196592, 1, 0, -196591, 1, 0, -196590, 1, 0, -196589, 1, 0, -131067, 1610612737, 0, -131066, 1610612737, 0, -131065, 1610612737, 0, -131064, 1610612737, 0, -131063, 1610612737, 0, -131062, 1610612737, 0, -131061, 1610612737, 0, -131060, 1610612737, 0, -131059, 1610612737, 0, -131058, 1, 0, -131057, 1, 0, -131056, 1, 0, -131055, 1, 0, -131054, 1, 0, -5, 1, 0, -4, 1, 0, -3, 1, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, -1073741823, 0, -65534, 1, 0, -65533, -1073741823, 0, -65532, 1, 0, -65531, 1, 0, -65530, 1610612737, 0, -65529, 1, 0, -65528, 1, 0, 65531, 1, 0, 65532, 1, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0 )
 
 [node name="FUNDALA" type="TileMap" parent="."]
 scale = Vector2( 10, 40 )
@@ -102,3 +93,12 @@ text = "Run"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="pamant" parent="." instance=ExtResource( 7 )]
+position = Vector2( -862.458, 357.616 )
+
+[node name="pamant" parent="pamant" instance=ExtResource( 7 )]
+position = Vector2( -367.634, -242.914 )
+
+[node name="pamant" parent="pamant/pamant" instance=ExtResource( 7 )]
+position = Vector2( 20.2406, 253.764 )
