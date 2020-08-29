@@ -7,6 +7,6 @@ rotation = 1.27797
 
 [node name="icon" type="Sprite" parent="."]
 position = Vector2( 0.416733, 0.374328 )
-scale = Vector2( 0.413121, 0.419679 )
+scale = Vector2( 0.2, 0.2 )
 z_index = 2
 texture = ExtResource( 1 )

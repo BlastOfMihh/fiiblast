@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/gorilla/RUN/sprite_1.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Assets/gorilla/WALL_SLIDE/sprite_0.png" type="Texture" id=23]
 [ext_resource path="res://Assets/gorilla/WALL_SLIDE/sprite_2.png" type="Texture" id=24]
 [ext_resource path="res://bar.gd" type="Script" id=25]
+[ext_resource path="res://esc.tscn" type="PackedScene" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 14 )
@@ -219,6 +220,10 @@ anims/def = SubResource( 5 )
 anims/turn_tf = SubResource( 6 )
 
 [node name="ui" type="CanvasLayer" parent="."]
+
+[node name="esc" parent="ui" instance=ExtResource( 26 )]
+visible = false
+position = Vector2( 327, 95 )
 
 [node name="bar" type="Sprite" parent="ui"]
 visible = false
