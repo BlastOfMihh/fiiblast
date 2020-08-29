@@ -284,7 +284,7 @@ detect_radius = 1000
 in_range_radius = 1000
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
-position = Vector2( 569.652, -27.091 )
+position = Vector2( 726.982, 77.7958 )
 
 [node name="PhysicsMover" parent="." instance=ExtResource( 3 )]
 position = Vector2( 567.457, -2.41205 )

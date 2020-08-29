@@ -1,46 +1,66 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fonts/menu_font_dyn.tres" type="DynamicFont" id=1]
-[ext_resource path="res://AnimatedSprite.gd" type="Script" id=2]
+[ext_resource path="res://Assets/time_freeze/green_grad.png" type="Texture" id=2]
 [ext_resource path="res://home.gd" type="Script" id=3]
 [ext_resource path="res://pasue off.gd" type="Script" id=4]
 [ext_resource path="res://continue.gd" type="Script" id=5]
-[ext_resource path="res://Assets/eeeeeeeeeesss/sprite_0.png" type="Texture" id=6]
 [ext_resource path="res://esc.gd" type="Script" id=7]
-[ext_resource path="res://ColorRect.gd" type="Script" id=8]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
+[sub_resource type="Animation" id=1]
+resource_name = "appear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.34151, 0.34151 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 0.639216 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 0.0583146 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "def"
 
 [node name="esc" type="Node2D"]
 pause_mode = 2
 script = ExtResource( 7 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -463.0
-margin_top = -356.0
-margin_right = 1310.0
-margin_bottom = 790.0
-color = Color( 0.439216, 0.431373, 0.431373, 0.411765 )
-script = ExtResource( 8 )
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 0 )
+texture = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -3.0
+margin_top = -28.0
+margin_right = 37.0
+margin_bottom = 12.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
-script = ExtResource( 2 )
-
-[node name="continue" type="Button" parent="AnimatedSprite"]
-margin_left = -78.0
-margin_top = -107.0
-margin_right = 91.0
-margin_bottom = -70.0
+[node name="continue" type="Button" parent="Control"]
+margin_left = -82.2474
+margin_top = -30.0742
+margin_right = 86.7526
+margin_bottom = 6.92575
 custom_fonts/font = ExtResource( 1 )
 button_mask = 7
 text = "CONTINUE"
@@ -50,11 +70,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="relod" type="Button" parent="AnimatedSprite"]
-margin_left = -78.0
-margin_top = -15.0
-margin_right = 91.0
-margin_bottom = -70.0
+[node name="relod" type="Button" parent="Control"]
+margin_left = -80.8316
+margin_top = 11.4285
+margin_right = 88.1684
+margin_bottom = 48.4285
 custom_fonts/font = ExtResource( 1 )
 text = "RETRY"
 flat = true
@@ -63,11 +83,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="homeeeee" type="Button" parent="AnimatedSprite"]
-margin_left = -78.0
-margin_top = 70.0
-margin_right = 91.0
-margin_bottom = -70.0
+[node name="homeeeee" type="Button" parent="Control"]
+margin_left = -83.4539
+margin_top = 53.4151
+margin_right = 85.5461
+margin_bottom = 90.4151
 custom_fonts/font = ExtResource( 1 )
 text = "HOME"
 flat = true
@@ -75,6 +95,10 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="AnimatedSprite/continue" to="AnimatedSprite/continue" method="_on_continue_pressed"]
-[connection signal="pressed" from="AnimatedSprite/relod" to="AnimatedSprite/relod" method="_on_home_pressed"]
-[connection signal="pressed" from="AnimatedSprite/homeeeee" to="AnimatedSprite/homeeeee" method="_on_pasue_off_pressed"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/appear = SubResource( 1 )
+anims/def = SubResource( 2 )
+[connection signal="pressed" from="Control/continue" to="Control/continue" method="_on_continue_pressed"]
+[connection signal="pressed" from="Control/relod" to="Control/relod" method="_on_home_pressed"]
+[connection signal="pressed" from="Control/homeeeee" to="Control/homeeeee" method="_on_pasue_off_pressed"]
