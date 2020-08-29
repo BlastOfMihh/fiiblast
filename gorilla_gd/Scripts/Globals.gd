@@ -4,7 +4,7 @@ signal freeze_time()
 
 var tile_size=16
 
-var gravity:=800
+var gravity:=900
 
 var map_freeze:=false
 var player_freeze:=false

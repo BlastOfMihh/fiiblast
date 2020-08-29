@@ -16,9 +16,9 @@ var wall_gravity:=300
 var down_gravity:=normal_gravity*3/2
 var gravity=normal_gravity
 
-var speed=200
-var max_jump=-420
-var min_jump=-150
+var speed=300
+var max_jump=-460
+var min_jump=-200
 
 
 var on_ground:=false
