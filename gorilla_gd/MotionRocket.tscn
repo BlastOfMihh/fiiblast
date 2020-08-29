@@ -33,7 +33,6 @@ shape = SubResource( 1 )
 self_modulate = Color( 0.443137, 1, 0.243137, 1 )
 position = Vector2( 5, 0 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Killer" parent="." instance=ExtResource( 4 )]

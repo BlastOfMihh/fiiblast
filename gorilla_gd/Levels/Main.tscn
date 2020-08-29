@@ -43,10 +43,10 @@ texture = ExtResource( 4 )
 stretch_mode = 4
 
 [node name="quit" type="Button" parent="."]
-margin_left = 150.0
-margin_top = 279.367
-margin_right = 300.0
-margin_bottom = 354.367
+margin_left = 429.928
+margin_top = 213.046
+margin_right = 543.928
+margin_bottom = 271.046
 size_flags_horizontal = 3
 size_flags_vertical = 2
 size_flags_stretch_ratio = 30.0
@@ -59,10 +59,7 @@ __meta__ = {
 }
 
 [node name="paly" type="Button" parent="."]
-margin_left = 153.775
 margin_top = 171.888
-margin_right = 303.775
-margin_bottom = 246.888
 action_mode = 0
 icon = ExtResource( 2 )
 flat = true
@@ -73,10 +70,10 @@ __meta__ = {
 }
 
 [node name="tutuoria" type="Button" parent="."]
-margin_left = 390.817
-margin_top = 214.607
-margin_right = 590.817
-margin_bottom = 339.607
+margin_left = 251.932
+margin_top = 182.0
+margin_right = 409.932
+margin_bottom = 291.0
 icon = ExtResource( 7 )
 flat = true
 expand_icon = true

@@ -38,12 +38,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "run",
+"name": "fall",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "fall",
+"name": "run",
 "speed": 5.0
 } ]
 
@@ -145,6 +145,7 @@ position = Vector2( 4, 3 )
 shape = SubResource( 3 )
 
 [node name="move_text" type="RichTextLabel" parent="."]
+visible = false
 margin_left = -21.0
 margin_top = 21.0
 margin_right = 33.0
@@ -154,6 +155,7 @@ __meta__ = {
 }
 
 [node name="action_text" type="RichTextLabel" parent="."]
+visible = false
 margin_left = -21.0
 margin_top = -33.0
 margin_right = 25.0
